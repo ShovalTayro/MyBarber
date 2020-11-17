@@ -1,5 +1,5 @@
 package com.example.mybarber;
-
+/*
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,39 +19,86 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+}
+*/
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+import androidx.appcompat.app.AppCompatActivity;
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+public class MainActivity extends AppCompatActivity {
+    private Button login;
+    private Button register;
+    /*private TextView welcome;
+    private TextView loginT;
+    */@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        findViews();
+        myActivate();
+        // logedInModifier();
+    }
+    /*
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mAuth = FirebaseAuth.getInstance();
+        //FirebaseUser user = myInfo.getCurrentUser();
+        //if logged in
+        if (user != null) {
+            String name = user.getDisplayName();
+            welcome.setText("Hello, " + name + " :)");
+            loginT.setText("Profile");
+        } else {
+            welcome.setText("Hello, Guest :)");
+            loginT.setText("Login/Register");
+        }
+    }
+*/
+
+    //set buttons &the text view
+    private void findViews() {
+        //welcome = findViewById(R.id.welcomeText);
+        login = findViewById(R.id.login_button);
+        register = findViewById(R.id.register_button);
+    }
+
+    //activate views &buttons
+    private void myActivate() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, loginActivity.class);
+                startActivity(i);
+            }
+        });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, registerActivity.class);
+                // i.putExtra("user_id", user.getUid());
+                startActivity(i);
             }
         });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+/*
+    private void logedInModifier() {
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) // user is logged in
+        {
+            String disp_name = user.getDisplayName();
+            welcome.setText("Hello, " + disp_name + " :)");
+            login.setText("Profile");
+        } else {
+            welcome.setText("Hello, Guest :)");
+            login.setText("Login/Register");
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
+ */
 }
