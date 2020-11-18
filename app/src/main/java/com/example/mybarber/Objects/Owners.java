@@ -1,4 +1,4 @@
-package Objects;
+package com.example.mybarber.Objects;
 
 public class Owners
 {
@@ -9,7 +9,8 @@ public class Owners
     String phone ;
     int incomes;
 
-    public Owners() {
+    public Owners()
+    {
     }
 
     public Owners(String fName, String lName, String user, String email, String phone, int incomes) {
