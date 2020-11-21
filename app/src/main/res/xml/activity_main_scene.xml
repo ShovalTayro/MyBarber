@@ -44,6 +44,12 @@
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintVertical_bias="0.888"
             motion:layout_constraintHorizontal_bias="0.214" />
+        <Constraint
+            motion:layout_editor_absoluteY="491dp"
+            android:layout_height="wrap_content"
+            motion:layout_editor_absoluteX="159dp"
+            android:layout_width="wrap_content"
+            android:id="@+id/button2" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">

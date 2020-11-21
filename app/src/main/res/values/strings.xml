@@ -10,4 +10,11 @@
 
     <string name="log_out">Log-out</string>
     <string name="button">Button</string>
+    <string name="calendar">Calendar</string>
+    <string name="all_haircuts">all Haircuts</string>
+    <string name="todo">TODO</string>
+    <string name="back">back</string>
+    <string name="add">add</string>
+    <string name="price">price:</string>
+    <string name="haircut">haircut:</string>
 </resources>

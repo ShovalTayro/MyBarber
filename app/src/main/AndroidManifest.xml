@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyBarber">
         <activity android:name=".user_loged_activity"></activity>
+        <activity android:name=".managerActivity" />
+        <activity android:name=".allHaircutActivity" />
+        <activity android:name=".addHaircutActivity" />
         <activity android:name=".registerActivity" />
         <activity android:name=".loginActivity" />
         <activity
