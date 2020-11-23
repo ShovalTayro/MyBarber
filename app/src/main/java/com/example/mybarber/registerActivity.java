@@ -25,7 +25,7 @@ public class registerActivity extends AppCompatActivity {
     private EditText lastName;
     private EditText phone_number;
 
-        private Button register_button;
+    private Button register_button;
     private Button back;
 
     private FirebaseAuth mAuth;
@@ -41,9 +41,9 @@ public class registerActivity extends AppCompatActivity {
     }
 
     public void run() {
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar2);
 
-        register_button = (Button) findViewById(R.id.register_button);
+        register_button = (Button) findViewById(R.id.login_button);
         back = (Button) findViewById(R.id.back);
 
         email = (EditText) findViewById(R.id.editTextTextEmail);
