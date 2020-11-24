@@ -17,6 +17,8 @@
         <activity android:name=".addHaircutActivity" />
         <activity android:name=".registerActivity" />
         <activity android:name=".loginActivity" />
+
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

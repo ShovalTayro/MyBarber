@@ -11,6 +11,7 @@ public class Owners
 
     public Owners()
     {
+
     }
 
     public Owners(String fName, String lName, String user, String email, String phone, int incomes) {
@@ -19,7 +20,7 @@ public class Owners
         this.user =  user;
         this.Email = email;
         this.phone = phone;
-        this.incomes = incomes;
+         this.incomes = incomes;
     }
 
     public void setfName(String fName) {
@@ -43,7 +44,7 @@ public class Owners
     }
 
     public void setIncomes(int incomes) {
-        this.incomes += incomes;
+        this.incomes = incomes;
     }
 
     public String getfName() {

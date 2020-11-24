@@ -1,6 +1,7 @@
 package com.example.mybarber.Objects;
 
 public class Client {
+
     String fName;
     String lName;
     String Email;
