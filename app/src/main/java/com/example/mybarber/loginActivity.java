@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +31,6 @@ public class loginActivity extends AppCompatActivity {
     private Button login;
     private Button back;
     private TextView forgot_pass;
-    private ProgressBar progressBar2;
     private FirebaseAuth mAuth;
 
     @Override
@@ -54,9 +52,6 @@ public class loginActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.login_button);
         back = (Button) findViewById(R.id.back);
         forgot_pass = (TextView) findViewById(R.id.forgot_password1);
-        progressBar2 = findViewById(R.id.progressBar2);
-        progressBar2.setVisibility(View.INVISIBLE);
-
     }
     private void buttons()
     {
@@ -70,18 +65,17 @@ public class loginActivity extends AppCompatActivity {
                 email.setError("Some fields are missing");
                 return;
             }else {
-                progressBar2.setVisibility(View.INVISIBLE);
-                mAuth.signInWithEmailAndPassword(Email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+              mAuth.signInWithEmailAndPassword(Email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            progressBar2.setVisibility(View.VISIBLE);
+                           // progressBar2.setVisibility(View.VISIBLE);
                             Toast.makeText(loginActivity.this, "User is logging", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(loginActivity.this, user_loged_activity.class);
                             startActivity(i);
                         } else {
                             Toast.makeText(loginActivity.this, "ERROR " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar2.setVisibility(View.INVISIBLE);
+                      //      progressBar2.setVisibility(View.INVISIBLE);
                         }
                     }
                 });
@@ -109,12 +103,12 @@ public class loginActivity extends AppCompatActivity {
                         mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(loginActivity.this,"reset Link snet to your Email. ",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(loginActivity.this,"reset Link sent to your Email. ",Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(loginActivity.this, " Error ! reset link isnt sent "+ e.getMessage(),Toast.LENGTH_SHORT).show();
+                                Toast.makeText(loginActivity.this, " Error ! reset link isn't sent "+ e.getMessage(),Toast.LENGTH_SHORT).show();
                             }
                         });
                     }

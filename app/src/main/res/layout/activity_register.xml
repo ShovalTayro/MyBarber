@@ -122,7 +122,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTexttLastName"
         app:layout_constraintVertical_bias="0.057" />
-
+<!--
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -136,5 +136,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back"
         app:layout_constraintVertical_bias="0.531" />
-
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>
