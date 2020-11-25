@@ -8,10 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.mybarber.Objects.Client;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 public class registerActivity extends AppCompatActivity {
 
     private EditText email;
@@ -30,6 +29,7 @@ public class registerActivity extends AppCompatActivity {
     private EditText firstName;
     private EditText lastName;
     private EditText phone_number;
+
     private Button register_button;
     private Button back;
 
@@ -90,10 +90,12 @@ public class registerActivity extends AppCompatActivity {
                                         Log.d("tag", "OnFailure: Email has not sent. " + e.getMessage());
                                     }
                                 });
-                                root = FirebaseDatabase.getInstance();
+
+                                /*root = FirebaseDatabase.getInstance();
                                 reference = root.getReference("users");
-                                Client UserExample = new Client(fName,lName,Email,phone);
-                                reference.child(phone).setValue(UserExample);
+                                reference = root.getReference("Admin");
+                                */
+                                Client UserExample = new Client(fName,lName,Email,phone,pass);
 
                                 Intent i = new Intent(registerActivity.this, user_loged_activity.class);
                                 Toast.makeText(registerActivity.this, "User has created", Toast.LENGTH_SHORT).show();

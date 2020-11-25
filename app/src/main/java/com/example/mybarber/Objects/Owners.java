@@ -4,23 +4,21 @@ public class Owners
 {
     String fName ;
     String lName ;
-    String user  ;
     String Email ;
     String phone ;
+    String pass ;
     int incomes;
 
     public Owners()
     {
 
     }
-
-    public Owners(String fName, String lName, String user, String email, String phone, int incomes) {
+    public Owners(String fName, String lName, String email, String phone, String pass ) {
         this.fName = fName;
         this.lName = lName;
-        this.user =  user;
         this.Email = email;
+        this.pass = pass;
         this.phone = phone;
-         this.incomes = incomes;
     }
 
     public void setfName(String fName) {
@@ -29,10 +27,6 @@ public class Owners
 
     public void setlName(String lName) {
         this.lName = lName;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     public void setEmail(String email) {
@@ -53,10 +47,6 @@ public class Owners
 
     public String getlName() {
         return lName;
-    }
-
-    public String getUser() {
-        return user;
     }
 
     public String getEmail() {

@@ -20,7 +20,8 @@ public class managerActivity extends AppCompatActivity {
     }
 
     //set buttons &the text view
-    private void findViews() {
+    private void findViews()
+    {
         calendar = findViewById(R.id.calendar_button);
         haircuts = findViewById(R.id.haircuts_button);
     }

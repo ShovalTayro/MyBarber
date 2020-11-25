@@ -6,17 +6,27 @@ public class Client {
     String lName;
     String Email;
     String phone;
+    String pass;
 
     public Client() {
     }
 
-    public Client(String fName, String lName, String email, String phone) {
+
+
+    public Client(String fName, String lName, String email, String phone,String pass) {
         this.fName = fName;
+        this.pass= pass;
         this.lName = lName;
         this.Email = email;
         this.phone = phone;
     }
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
 
+    public String getPass() {
+        return pass;
+    }
     public String getfName()
     {
         return fName;
