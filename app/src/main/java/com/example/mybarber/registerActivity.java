@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.mybarber.Objects.Client;
+
+import com.example.mybarber.fireBaseAdpaters.usersFB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -18,8 +20,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 
 public class registerActivity extends AppCompatActivity {
@@ -34,8 +34,7 @@ public class registerActivity extends AppCompatActivity {
     private Button back;
 
     private FirebaseAuth mAuth;
-    private FirebaseDatabase root;
-    private DatabaseReference reference;
+    private usersFB root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,14 +89,10 @@ public class registerActivity extends AppCompatActivity {
                                         Log.d("tag", "OnFailure: Email has not sent. " + e.getMessage());
                                     }
                                 });
-
-                                /*root = FirebaseDatabase.getInstance();
-                                reference = root.getReference("users");
-                                reference = root.getReference("Admin");
-                                */
-                                Client UserExample = new Client(fName,lName,Email,phone,pass);
-
-                                Intent i = new Intent(registerActivity.this, user_loged_activity.class);
+                                //here need to create admin / user registration
+                                root = new usersFB();
+                                root.addUserToDB(fName,lName,phone,Email,pass);
+                               Intent i = new Intent(registerActivity.this, user_loged_activity.class);
                                 Toast.makeText(registerActivity.this, "User has created", Toast.LENGTH_SHORT).show();
                                 i.putExtra(fName,fName);
                                 i.putExtra(lName,lName);

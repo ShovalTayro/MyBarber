@@ -38,7 +38,7 @@ public class Owners
     }
 
     public void setIncomes(int incomes) {
-        this.incomes = incomes;
+        this.incomes += incomes;
     }
 
     public String getfName() {
