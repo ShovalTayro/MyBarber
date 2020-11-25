@@ -1,15 +1,16 @@
-package com.example.mybarber.fireBaseAdpaters;
+package com.example.mybarber.fireBase;
 
 import com.example.mybarber.Objects.hairCut;
 import com.google.firebase.database.DatabaseReference;
 
 public class hairCutsFB extends initializeFB
 {
-    public void addHairCut(String haircut , int price)
+    public void addHairCut(String haircut , String price)
     {
         hairCut HC = new hairCut(haircut,price);
         ref.child("haircuts").child(haircut).setValue(HC);
     }
+
     public DatabaseReference allHairCuts()
     {
         return ref.child("haircuts");

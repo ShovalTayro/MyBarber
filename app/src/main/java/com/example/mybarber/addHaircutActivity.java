@@ -9,6 +9,16 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mybarber.Objects.hairCut;
+import com.example.mybarber.fireBase.hairCutsFB;
+import com.example.mybarber.fireBase.initializeFB;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class addHaircutActivity extends AppCompatActivity {
 
     EditText haircut;
@@ -16,15 +26,14 @@ public class addHaircutActivity extends AppCompatActivity {
     private Button add;
     private  Button back;
 
-   // private FirebaseAuth mAuth;
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_haircut);
         findViews();
-     //   mAuth = FirebaseAuth.getInstance();
+       mAuth = FirebaseAuth.getInstance();
         myActivate();
     }
 
@@ -49,8 +58,11 @@ public class addHaircutActivity extends AppCompatActivity {
                     haircut.setError("Some fields are missing");
                     return;
                 }
-                else {
-                    //add to firebase
+                else{
+                    hairCutsFB haircut = new hairCutsFB();
+                     haircut.addHairCut(haircutName, priceNum);
+                   // hairCut HC = new hairCut(haircutName,priceNum);
+                    //ref.child("haircuts").child(haircutName).setValue(HC);
                     //startActivity(i);
                 }
             }

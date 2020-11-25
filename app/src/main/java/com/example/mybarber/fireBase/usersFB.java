@@ -1,4 +1,4 @@
-package com.example.mybarber.fireBaseAdpaters;
+package com.example.mybarber.fireBase;
 
 import com.example.mybarber.Objects.Client;
 import com.google.firebase.database.DatabaseReference;

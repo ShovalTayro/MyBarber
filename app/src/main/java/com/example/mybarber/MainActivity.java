@@ -33,6 +33,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button register;
+    private Button manager;
     private TextView myBarber;
     /*private TextView welcome;
     private TextView loginT;
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         login = (Button)findViewById(R.id.login_button);
         myBarber = (TextView)findViewById(R.id.myBarber2);
         register = (Button)findViewById(R.id.register_button);
+        manager = (Button)findViewById(R.id.manager_button);
     }
 
     //activate views &buttons
@@ -84,6 +86,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, registerActivity.class);
+                // i.putExtra("user_id", user.getUid());
+                startActivity(i);
+            }
+        });
+        manager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, managerActivity.class);
                 // i.putExtra("user_id", user.getUid());
                 startActivity(i);
             }

@@ -1,26 +1,29 @@
 package com.example.mybarber.Objects;
 
-public class hairCut
+import android.media.Image;
+
+public class hairCut extends Object
 {
     String hairCutName;
-    int price;
-//    Image img ;
+    String price;
+    //Image img ;
 
     public hairCut()
     {
 
     }
 
-    public hairCut(String hairCutName , int price ){
+    public hairCut(String hairCutName , String price ){
       this.hairCutName = hairCutName;
       this.price = price;
   }
 
+
     public String getHairCutName() {
-        return hairCutName;
+        return this.hairCutName;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -28,7 +31,7 @@ public class hairCut
         this.hairCutName = hairCutName;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

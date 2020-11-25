@@ -12,7 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mybarber.fireBaseAdpaters.usersFB;
+import com.example.mybarber.fireBase.usersFB;
+import com.example.mybarber.fireBase.usersFB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -92,7 +93,7 @@ public class registerActivity extends AppCompatActivity {
                                 //here need to create admin / user registration
                                 root = new usersFB();
                                 root.addUserToDB(fName,lName,phone,Email,pass);
-                               Intent i = new Intent(registerActivity.this, user_loged_activity.class);
+                               Intent i = new Intent(registerActivity.this, profileActivity.class);
                                 Toast.makeText(registerActivity.this, "User has created", Toast.LENGTH_SHORT).show();
                                 i.putExtra(fName,fName);
                                 i.putExtra(lName,lName);

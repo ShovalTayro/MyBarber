@@ -12,7 +12,7 @@ public class profileActivity extends AppCompatActivity {
     private Button chooseTurn;
     private Button privateArea;
     private Button history;
-    private TextView welcome;
+    // private TextView welcome;
 
 
     @Override
@@ -20,16 +20,17 @@ public class profileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_loged_activity);
         findViews();
-        myActivate();
+        // myActivate();
     }
+
     //set buttons &the text view
     private void findViews() {
         //welcome = findViewById(R.id.welcomeText);
         home = findViewById(R.id.home);
         privateArea = findViewById(R.id.privateArea);
-        history= fin;
+        //   history= fin;
     }
-
+/*
     //activate views &buttons
     private void myActivate() {
         login.setOnClickListener(new View.OnClickListener() {
@@ -48,4 +49,5 @@ public class profileActivity extends AppCompatActivity {
             }
         });
     }
+}*/
 }
