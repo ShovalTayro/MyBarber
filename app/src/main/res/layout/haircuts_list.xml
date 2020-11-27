@@ -1,43 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
     <androidx.cardview.widget.CardView
     android:background="@color/white"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     android:layout_width="match_parent"
     android:layout_margin="3dp"
-    app:cardCornerRadius="5dp"
+    app:cardCornerRadius="2dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/cardView"
-            app:layout_constraintEnd_toEndOf="parent"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/haircutName"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_height="77dp"
-                android:layout_width="321dp"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:id="@+id/haircutName"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_height="47dp"
-                android:layout_width="321dp"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:id="@+id/price"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
-        </LinearLayout>
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/common_google_signin_btn_icon_dark" />
 </androidx.cardview.widget.CardView>
 

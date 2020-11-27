@@ -62,30 +62,30 @@
     <TextView
         android:id="@+id/price_textview"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="43dp"
         android:layout_marginStart="59dp"
         android:layout_marginLeft="59dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/price"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/price_editText"
         app:layout_constraintEnd_toStartOf="@+id/price_editText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/price_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/haircut_textview" />
 
     <EditText
         android:id="@+id/price_editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
+        android:layout_width="215dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
         android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/price_textview"
         app:layout_constraintTop_toBottomOf="@+id/haircut_editText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
