@@ -25,7 +25,8 @@ public class haircutAdapter extends RecyclerView.Adapter<haircutAdapter.ViewHold
         this.info = info;
     }
 
-    public void setJobsFeed(List<hairCut> haircuts){
+    public void setHaircutsList(List<hairCut> haircuts){
+
         this.haircutsList=haircuts;
     }
 

@@ -3,18 +3,18 @@ package com.example.mybarber;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mybarber.Adapter.appointmentAdapter;
 import com.example.mybarber.Adapter.haircutAdapter;
+import com.example.mybarber.Objects.Appointment;
 import com.example.mybarber.Objects.hairCut;
+import com.example.mybarber.fireBase.appointmentFB;
 import com.example.mybarber.fireBase.hairCutsFB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,54 +25,54 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class allHaircutActivity extends AppCompatActivity {
-    private Button addHaircuts;
+public class allAppointmentActivity extends AppCompatActivity {
+    private Button addAppointment;
     private FirebaseAuth fa;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
-    private List<hairCut> haircutsList;
-    private com.example.mybarber.Adapter.haircutAdapter haircutAdapter;
+    private List<Appointment> appointmentList;
+    private com.example.mybarber.Adapter.appointmentAdapter appointmentsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_haircut);
+        setContentView(R.layout.activity_all_appointments);
         findViews();
         myActivate();
     }
 
     //set buttons &the text view
     private void findViews() {
-        addHaircuts = findViewById(R.id.addHaircut_button);
+        addAppointment = findViewById(R.id.addAppointment_button);
         recyclerView = (RecyclerView) findViewById(R.id.recV);
     }
 
     //activate views &buttons
     private void myActivate() {
-        addHaircuts.setOnClickListener(new View.OnClickListener() {
+        addAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(allHaircutActivity.this, addHaircutActivity.class);
+                Intent i = new Intent(allAppointmentActivity.this, addAppointmentActivity.class);
                 startActivity(i);
             }
         });
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        haircutsList = new ArrayList<>();
+        appointmentList = new ArrayList<>();
 
-        haircutAdapter = new haircutAdapter(allHaircutActivity.this);
-        recyclerView.setAdapter(haircutAdapter);
-        hairCutsFB haircut = new hairCutsFB();
-        DatabaseReference dr = haircut.allHairCuts();
+        appointmentsAdapter = new appointmentAdapter(allAppointmentActivity.this);
+        recyclerView.setAdapter(appointmentsAdapter);
+        appointmentFB appointment = new appointmentFB();
+        DatabaseReference dr = appointment.allAppointments();
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot s : snapshot.getChildren()) {
-                    haircutsList.add(s.getValue(hairCut.class));
+                    appointmentList.add(s.getValue(Appointment.class));
                 }
-                haircutAdapter.setHaircutsList(haircutsList);
-                haircutAdapter.notifyDataSetChanged();
+                appointmentsAdapter.setAppointmentsList(appointmentList);
+                appointmentsAdapter.notifyDataSetChanged();
             }
 
             @Override

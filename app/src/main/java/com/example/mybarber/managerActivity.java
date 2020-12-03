@@ -31,8 +31,8 @@ public class managerActivity extends AppCompatActivity {
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //  Intent i = new Intent(MainActivity.this, loginActivity.class);
-                //  startActivity(i);
+                  Intent i = new Intent(managerActivity.this, allAppointmentActivity.class);
+                  startActivity(i);
             }
         });
         haircuts.setOnClickListener(new View.OnClickListener() {

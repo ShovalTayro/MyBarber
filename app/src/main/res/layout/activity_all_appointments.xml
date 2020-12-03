@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".allHaircutActivity">
+    tools:context=".allAppointmentActivity">
 
     <Button
-        android:id="@+id/addHaircut_button"
+        android:id="@+id/addAppointment_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="9dp"
         android:layout_marginRight="9dp"
-        android:text="add new haircut"
+        android:text="@string/add_new_appointment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.96"
@@ -59,12 +59,12 @@
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:layout_marginBottom="8dp"
-        android:text="All my haircut"
+        android:text="@string/calender"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ScrollView"
-        app:layout_constraintEnd_toStartOf="@+id/addHaircut_button"
+        app:layout_constraintEnd_toStartOf="@+id/addAppointment_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
