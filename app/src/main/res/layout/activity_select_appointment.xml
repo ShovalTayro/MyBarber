@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:layout_marginRight="6dp"
-        android:text="@string/select"
+        android:text="select"
         app:layout_constraintBaseline_toBaselineOf="@+id/back_button"
         app:layout_constraintEnd_toStartOf="@+id/back_button"
         app:layout_constraintStart_toStartOf="parent" />

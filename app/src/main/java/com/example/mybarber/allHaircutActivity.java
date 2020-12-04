@@ -27,6 +27,7 @@ import java.util.List;
 
 public class allHaircutActivity extends AppCompatActivity {
     private Button addHaircuts;
+    private Button back;
     private FirebaseAuth fa;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -44,6 +45,7 @@ public class allHaircutActivity extends AppCompatActivity {
     //set buttons &the text view
     private void findViews() {
         addHaircuts = findViewById(R.id.addHaircut_button);
+        back = findViewById(R.id.back_button3);
         recyclerView = (RecyclerView) findViewById(R.id.recV);
     }
 
@@ -77,6 +79,13 @@ public class allHaircutActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(allHaircutActivity.this,managerActivity.class));
             }
         });
     }

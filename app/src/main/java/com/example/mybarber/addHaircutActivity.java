@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,9 +62,7 @@ public class addHaircutActivity extends AppCompatActivity {
                 else{
                     hairCutsFB haircut = new hairCutsFB();
                      haircut.addHairCut(haircutName, priceNum);
-                   // hairCut HC = new hairCut(haircutName,priceNum);
-                    //ref.child("haircuts").child(haircutName).setValue(HC);
-                    //startActivity(i);
+                    Toast.makeText(getApplicationContext(),"added successful", Toast.LENGTH_LONG).show();
                 }
             }
         });

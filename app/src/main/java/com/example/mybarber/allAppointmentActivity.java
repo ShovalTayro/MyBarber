@@ -27,6 +27,7 @@ import java.util.List;
 
 public class allAppointmentActivity extends AppCompatActivity {
     private Button addAppointment;
+    private Button back;
     private FirebaseAuth fa;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -44,6 +45,7 @@ public class allAppointmentActivity extends AppCompatActivity {
     //set buttons &the text view
     private void findViews() {
         addAppointment = findViewById(R.id.addAppointment_button);
+        back = findViewById(R.id.back_button2);
         recyclerView = (RecyclerView) findViewById(R.id.recV);
     }
 
@@ -77,6 +79,12 @@ public class allAppointmentActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(allAppointmentActivity.this,managerActivity.class));
             }
         });
     }

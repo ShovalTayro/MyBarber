@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -81,6 +82,7 @@ public class addAppointmentActivity extends AppCompatActivity {
                 else{
                     appointmentFB appointment = new appointmentFB();
                     appointment.addAppointmentAdmin(stringDate, stringHour);
+                    Toast.makeText(getApplicationContext(),"added successful", Toast.LENGTH_LONG).show();
                     //startActivity(i);
                 }
             }
