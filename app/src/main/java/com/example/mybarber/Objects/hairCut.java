@@ -34,5 +34,10 @@ public class hairCut extends Object
     public void setPrice(String price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return  hairCutName + ", price = " +price;
+    }
 }
 

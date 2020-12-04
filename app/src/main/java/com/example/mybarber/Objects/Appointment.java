@@ -4,6 +4,7 @@ import java.sql.Time;
 import java.util.Date;
 
 public class Appointment {
+    String id;
     String name;
     String date;
     String time;
@@ -16,6 +17,7 @@ public class Appointment {
 
     public Appointment(String name, String date, String time,String haircut)
     {
+        this.id = date + ", " + time;
         this.name = name;
         this.date = date;
         this.time = time;
@@ -60,5 +62,10 @@ public class Appointment {
     public void setHaircut(String haircut)
     {
         this.haircut = haircut;
+    }
+
+    @Override
+    public String toString() {
+        return date + ", " + time;
     }
 }

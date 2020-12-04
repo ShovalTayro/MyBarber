@@ -19,6 +19,7 @@
         <activity android:name=".loginActivity" />
         <activity android:name=".allAppointmentActivity" />
         <activity android:name=".addAppointmentActivity" />
+        <activity android:name=".selectAppointmentActivity" />
 
 
         <activity
