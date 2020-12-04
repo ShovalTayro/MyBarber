@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 public class selectAppointmentActivity extends AppCompatActivity {
 
@@ -127,6 +128,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
                 /*?????????????????????how to get the user name????????????????????????????????*/
                 app.getAppointmendByID(appointmentID).child("name").setValue("dana");
                 app.getAppointmendByID(appointmentID).child("haircut").setValue(haircutID);
+                Toast.makeText(getApplicationContext(),"selected successful", Toast.LENGTH_LONG).show();
             }
         });
 
