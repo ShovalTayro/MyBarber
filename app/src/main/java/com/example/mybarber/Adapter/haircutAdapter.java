@@ -20,13 +20,11 @@ public class haircutAdapter extends RecyclerView.Adapter<haircutAdapter.ViewHold
     private List<hairCut> haircutsList=new ArrayList();
     private Context info;
 
-    public haircutAdapter(Context info)
-    {
+    //constructor
+    public haircutAdapter(Context info) {
         this.info = info;
     }
-
     public void setHaircutsList(List<hairCut> haircuts){
-
         this.haircutsList=haircuts;
     }
 

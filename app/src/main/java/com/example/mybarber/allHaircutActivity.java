@@ -36,6 +36,7 @@ public class allHaircutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_haircut);
         findViews();
@@ -51,6 +52,7 @@ public class allHaircutActivity extends AppCompatActivity {
 
     //activate views &buttons
     private void myActivate() {
+
         addHaircuts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +60,7 @@ public class allHaircutActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -68,6 +71,7 @@ public class allHaircutActivity extends AppCompatActivity {
         hairCutsFB haircut = new hairCutsFB();
         DatabaseReference dr = haircut.allHairCuts();
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
+            //update haircuts
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot s : snapshot.getChildren()) {

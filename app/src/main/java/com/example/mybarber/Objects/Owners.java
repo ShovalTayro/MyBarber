@@ -1,7 +1,8 @@
 package com.example.mybarber.Objects;
 
-public class Owners
-{
+public class Owners {
+
+    //variables
     String fName ;
     String lName ;
     String Email ;
@@ -9,9 +10,8 @@ public class Owners
     String pass ;
     int incomes;
 
-    public Owners()
-    {
-
+    //constructors
+    public Owners() {
     }
     public Owners(String fName, String lName, String email, String phone, String pass ) {
         this.fName = fName;
@@ -21,6 +21,7 @@ public class Owners
         this.phone = phone;
     }
 
+    //getters & setters
     public void setfName(String fName) {
         this.fName = fName;
     }

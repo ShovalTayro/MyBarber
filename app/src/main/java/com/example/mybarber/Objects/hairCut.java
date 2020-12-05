@@ -2,23 +2,22 @@ package com.example.mybarber.Objects;
 
 import android.media.Image;
 
-public class hairCut extends Object
-{
+public class hairCut extends Object {
+
+    //variables
     String hairCutName;
     String price;
     //Image img ;
 
-    public hairCut()
-    {
-
+    //constructors
+    public hairCut() {
     }
-
     public hairCut(String hairCutName , String price ){
       this.hairCutName = hairCutName;
       this.price = price;
   }
 
-
+    //getters & setters
     public String getHairCutName() {
         return this.hairCutName;
     }

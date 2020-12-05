@@ -22,55 +22,61 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class loginActivity extends AppCompatActivity {
 
     private EditText email;
     private EditText password;
-
     private Button login;
     private Button back;
     private TextView forgot_pass;
     private FirebaseAuth mAuth;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+        //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getViews();
-
+        findViews();
         mAuth = FirebaseAuth.getInstance();
-        buttons();
+        myActivate();
     }
-
-    public void getViews()
-    {
+    //set buttons &the text view
+    public void findViews() {
         email = (EditText) findViewById(R.id.editTextTextEmail);
         password = (EditText) findViewById(R.id.editTextNumberPassword);
         login = (Button) findViewById(R.id.login_button);
         back = (Button) findViewById(R.id.back);
         forgot_pass = (TextView) findViewById(R.id.forgot_password1);
     }
-    private void buttons()
-    {
+    //activate views &buttons
+    private void myActivate() {
     login.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            //create the info as a string without any leading and trailing white space
             String Email = email.getText().toString().trim();
             String pass = password.getText().toString().trim();
-
+            //if input is empty
             if (TextUtils.isEmpty(Email) || TextUtils.isEmpty(pass) ) {
                 email.setError("Some fields are missing");
                 return;
-            }else {
+            }
+            //try to login
+            else {
               mAuth.signInWithEmailAndPassword(Email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        //if succeed to login alter
                         if (task.isSuccessful()) {
                             Toast.makeText(loginActivity.this, "User is logging", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(loginActivity.this, profileActivity.class);
+                            //get the userName
+                            FirebaseUser user = mAuth.getCurrentUser();
+                             //////////////maybe doesn't work//////////
+                               String fName= user.getDisplayName();
+                               i.putExtra("firstName", fName);
                             startActivity(i);
                         } else {
                             Toast.makeText(loginActivity.this, "ERROR " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

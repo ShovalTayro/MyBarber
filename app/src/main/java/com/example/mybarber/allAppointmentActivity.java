@@ -36,6 +36,7 @@ public class allAppointmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_appointments);
         findViews();
@@ -58,6 +59,7 @@ public class allAppointmentActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -68,6 +70,7 @@ public class allAppointmentActivity extends AppCompatActivity {
         appointmentFB appointment = new appointmentFB();
         DatabaseReference dr = appointment.allAppointments();
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
+            //update appointments
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot s : snapshot.getChildren()) {

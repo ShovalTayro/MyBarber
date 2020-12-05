@@ -2,17 +2,16 @@ package com.example.mybarber.Objects;
 
 public class Client {
 
+    //variables
     String fName;
     String lName;
     String Email;
     String phone;
     String pass;
 
+    //constructors
     public Client() {
     }
-
-
-
     public Client(String fName, String lName, String email, String phone,String pass) {
         this.fName = fName;
         this.pass= pass;
@@ -20,6 +19,8 @@ public class Client {
         this.Email = email;
         this.phone = phone;
     }
+
+    //getters & setters
     public void setPass(String pass) {
         this.pass = pass;
     }
@@ -27,44 +28,36 @@ public class Client {
     public String getPass() {
         return pass;
     }
-    public String getfName()
-    {
+    public String getfName() {
         return fName;
     }
 
-    public String getlName()
-    {
+    public String getlName() {
         return lName;
     }
 
-    public String getEmail()
-    {
+    public String getEmail() {
         return Email;
     }
 
-    public String getPhone()
-    {
+    public String getPhone() {
         return phone;
     }
 
-    public void setfName(String fName)
-    {
+    public void setfName(String fName) {
         this.fName = fName;
     }
 
-    public void setlName(String lName)
-    {
+    public void setlName(String lName) {
         this.lName = lName;
     }
 
 
-    public void setEmail(String email)
-    {
+    public void setEmail(String email) {
         Email = email;
     }
 
-    public void setPhone(String phone)
-    {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

@@ -30,26 +30,25 @@ public class addAppointmentActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+        //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_appointments);
         findViews();
         mAuth = FirebaseAuth.getInstance();
         myActivate();
     }
-
-    private void findViews()
-    {
+    //set buttons &the text view
+    private void findViews() {
         date = findViewById(R.id.date_editText);
         date.setInputType(InputType.TYPE_NULL);
         hour = findViewById(R.id.time_editText);
         add = findViewById(R.id.add_button);
         back = findViewById(R.id.back_button);
     }
+    //activate views &buttons
+    private void myActivate() {
 
-    private void myActivate()
-    {
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +71,7 @@ public class addAppointmentActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //create the info as a string without any leading and trailing white space
                 String stringDate = date.getText().toString().trim();
                 String stringHour = hour.getText().toString().trim();
                 //if info is missing
@@ -79,6 +79,7 @@ public class addAppointmentActivity extends AppCompatActivity {
                     date.setError("Some fields are missing");
                     return;
                 }
+                //add appointment to firebase & alter
                 else{
                     appointmentFB appointment = new appointmentFB();
                     appointment.addAppointmentAdmin(stringDate, stringHour);

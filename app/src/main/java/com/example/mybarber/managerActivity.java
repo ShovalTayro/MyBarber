@@ -13,6 +13,7 @@ public class managerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
         findViews();
@@ -20,8 +21,7 @@ public class managerActivity extends AppCompatActivity {
     }
 
     //set buttons &the text view
-    private void findViews()
-    {
+    private void findViews() {
         calendar = findViewById(R.id.calendar_button);
         haircuts = findViewById(R.id.haircuts_button);
     }

@@ -3,8 +3,7 @@ package com.example.mybarber.fireBase;
 import com.example.mybarber.Objects.Appointment;
 import com.google.firebase.database.DatabaseReference;
 
-public class appointmentFB extends initializeFB
-{
+public class appointmentFB extends initializeFB {
     /*
     public void addAppointmentClient(String name , String date, String time, hairCut haircut)
     {
@@ -13,24 +12,20 @@ public class appointmentFB extends initializeFB
     }
     */
 
-    public void addAppointmentAdmin(String date, String time)
-    {
+    public void addAppointmentAdmin(String date, String time) {
         Appointment appointment = new Appointment("Available",date,time, "-");
         ref.child("appointment").child(appointment.toString()).setValue(appointment);
     }
 
-    public DatabaseReference allAppointmentByClient(String name)
-    {
+    public DatabaseReference allAppointmentByClient(String name) {
         return (DatabaseReference) ref.child("appointment").orderByChild("name").equalTo(name);
     }
 
-    public DatabaseReference getAppointmendByID(String id)
-    {
+    public DatabaseReference getAppointmendByID(String id) {
         return ref.child("appointment").child(id);
     }
 
-    public DatabaseReference allAppointments()
-    {
+    public DatabaseReference allAppointments() {
         return ref.child("appointment");
     }
 }

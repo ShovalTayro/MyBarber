@@ -4,19 +4,18 @@ import java.sql.Time;
 import java.util.Date;
 
 public class Appointment {
+
+    //variables
     String id;
     String name;
     String date;
     String time;
     String haircut;
 
-    public Appointment()
-    {
-
+    //constructors
+    public Appointment() {
     }
-
-    public Appointment(String name, String date, String time,String haircut)
-    {
+    public Appointment(String name, String date, String time,String haircut) {
         this.id = date + ", " + time;
         this.name = name;
         this.date = date;
@@ -24,43 +23,36 @@ public class Appointment {
         this.haircut = haircut;
     }
 
-    public String getName()
-    {
+    //getters & setters
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getDate()
-    {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(String date)
-    {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public String getTime()
-    {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(String time)
-    {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public String getHaircut()
-    {
+    public String getHaircut() {
         return haircut;
     }
 
-    public void setHaircut(String haircut)
-    {
+    public void setHaircut(String haircut) {
         this.haircut = haircut;
     }
 

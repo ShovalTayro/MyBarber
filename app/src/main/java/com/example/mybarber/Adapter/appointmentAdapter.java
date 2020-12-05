@@ -22,13 +22,11 @@ public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.
     private List<Appointment> appointmentsList=new ArrayList();
     private Context info;
 
-    public appointmentAdapter(Context info)
-    {
+    public appointmentAdapter(Context info) {
         this.info = info;
     }
 
-    public void setAppointmentsList(List<Appointment> appointments)
-    {
+    public void setAppointmentsList(List<Appointment> appointments) {
         this.appointmentsList=appointments;
     }
 
@@ -76,9 +74,6 @@ public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.
             appointmentDate.setText(date);
             appointmentTime.setText(time);
             appointmentHaircut.setText(haircut);
-
-
-
         }
     }
 }

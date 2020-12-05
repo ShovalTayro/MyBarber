@@ -21,36 +21,35 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class addHaircutActivity extends AppCompatActivity {
-
     EditText haircut;
     EditText price;
     private Button add;
     private  Button back;
-
     private FirebaseAuth mAuth;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+        //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_haircut);
         findViews();
-       mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         myActivate();
     }
-
-    private void findViews()
-    {
+    //set buttons &the text view
+    private void findViews() {
         haircut = findViewById(R.id.haircut_editText);
         price = findViewById(R.id.price_editText);
         add = findViewById(R.id.add_button);
         back = findViewById(R.id.back_button);
     }
+    //activate views & buttons
+    private void myActivate() {
 
-    private void myActivate()
-    {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //create the info as a string without any leading and trailing white space
                 String haircutName = haircut.getText().toString().trim();
                 String priceNum = price.getText().toString().trim();
 
@@ -59,7 +58,9 @@ public class addHaircutActivity extends AppCompatActivity {
                     haircut.setError("Some fields are missing");
                     return;
                 }
+                //create a new haircut
                 else{
+                    ////////check if exist//////////
                     hairCutsFB haircut = new hairCutsFB();
                      haircut.addHairCut(haircutName, priceNum);
                     Toast.makeText(getApplicationContext(),"added successful", Toast.LENGTH_LONG).show();
