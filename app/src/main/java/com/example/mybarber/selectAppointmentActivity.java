@@ -34,38 +34,43 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 public class selectAppointmentActivity extends AppCompatActivity {
-
     Spinner spinnerAppointment;
     Spinner spinnerHaircut;
     private Button select;
     private  Button back;
     private List<Appointment> appointmentList;
     private List<hairCut> haircutList;
-
     private FirebaseAuth mAuth;
+    private String fName ,lName;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+        //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_appointment);
+        Intent iin= getIntent();
+        //get extras from register/login activity
+        Bundle b = iin.getExtras();
+        if(b!=null) {
+            fName =(String) b.get("firstName");
+            lName =(String) b.get("lastName");
+        }
         findViews();
         mAuth = FirebaseAuth.getInstance();
         myActivate();
     }
-
-    private void findViews()
-    {
+    //set buttons &the text view
+    private void findViews() {
         spinnerAppointment = (Spinner) findViewById(R.id.spinnerAppointment);
         spinnerHaircut = (Spinner) findViewById(R.id.spinnerHaircut);
         select = findViewById(R.id.select_button);
         back = findViewById(R.id.back_button);
     }
-
-    private void myActivate()
-    {
+    //activate views &buttons
+    private void myActivate() {
         appointmentList = new ArrayList<>();
         appointmentFB appointment = new appointmentFB();
         FirebaseDatabase.getInstance().getReference().child("appointment").addListenerForSingleValueEvent(new ValueEventListener() {
+          //if there is any change update
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot s : snapshot.getChildren()) {
@@ -95,6 +100,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
         hairCutsFB haircuts = new hairCutsFB();
         DatabaseReference dr2 = haircuts.allHairCuts();
         dr2.addListenerForSingleValueEvent(new ValueEventListener() {
+            //if there is any change update
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot s : snapshot.getChildren()) {
@@ -126,7 +132,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
                 String haircutID = haircut.substring(0, haircut.indexOf(',')+1);
                 appointmentFB app = new appointmentFB();
                 /*?????????????????????how to get the user name????????????????????????????????*/
-                app.getAppointmendByID(appointmentID).child("name").setValue("dana");
+                app.getAppointmendByID(appointmentID).child("name").setValue(fName);
                 app.getAppointmendByID(appointmentID).child("haircut").setValue(haircutID);
                 Toast.makeText(getApplicationContext(),"selected successful", Toast.LENGTH_LONG).show();
             }
