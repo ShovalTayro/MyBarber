@@ -54,6 +54,7 @@ public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.
         private TextView appointmentDate;
         private TextView appointmentTime;
         private TextView appointmentHaircut;
+        private TextView appointmentPhone;
 
 
         public ViewHolder(View itemView) {
@@ -63,6 +64,7 @@ public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.
             appointmentDate =(TextView)itemView.findViewById(R.id.date);
             appointmentTime =(TextView)itemView.findViewById(R.id.time);
             appointmentHaircut = (TextView)itemView.findViewById(R.id.haircut);
+            appointmentPhone = (TextView)itemView.findViewById(R.id.phone);
         }
 
         public void showCallDetails(Appointment appointment){
@@ -70,10 +72,12 @@ public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.
             String date = appointment.getDate();
             String time = appointment.getTime();
             String haircut = appointment.getHaircut();
+            String phone = appointment.getPhone();
             appointmentName.setText(name);
             appointmentDate.setText(date);
             appointmentTime.setText(time);
             appointmentHaircut.setText(haircut);
+            appointmentPhone.setText(phone);
         }
     }
 }

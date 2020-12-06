@@ -11,16 +11,19 @@ public class Appointment {
     String date;
     String time;
     String haircut;
+    String phone;
 
     //constructors
     public Appointment() {
     }
-    public Appointment(String name, String date, String time,String haircut) {
+
+    public Appointment(String name, String date, String time,String haircut, String phone) {
         this.id = date + ", " + time;
         this.name = name;
         this.date = date;
         this.time = time;
         this.haircut = haircut;
+        this.phone = phone;
     }
 
     //getters & setters
@@ -54,6 +57,14 @@ public class Appointment {
 
     public void setHaircut(String haircut) {
         this.haircut = haircut;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

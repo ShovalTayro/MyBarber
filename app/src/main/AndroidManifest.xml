@@ -20,6 +20,7 @@
         <activity android:name=".allAppointmentActivity" />
         <activity android:name=".addAppointmentActivity" />
         <activity android:name=".selectAppointmentActivity" />
+        <activity android:name=".appointmentsHistoryActivity" />
 
 
         <activity

@@ -13,12 +13,12 @@ public class appointmentFB extends initializeFB {
     */
 
     public void addAppointmentAdmin(String date, String time) {
-        Appointment appointment = new Appointment("Available",date,time, "-");
+        Appointment appointment = new Appointment("Available",date,time, "-", "-");
         ref.child("appointment").child(appointment.toString()).setValue(appointment);
     }
 
-    public DatabaseReference allAppointmentByClient(String name) {
-        return (DatabaseReference) ref.child("appointment").orderByChild("name").equalTo(name);
+    public DatabaseReference allAppointmentByClient(String phone) {
+        return (DatabaseReference) ref.child("appointment").orderByChild("email").equalTo(phone);
     }
 
     public DatabaseReference getAppointmendByID(String id) {

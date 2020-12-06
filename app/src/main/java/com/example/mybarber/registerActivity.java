@@ -68,12 +68,14 @@ public class registerActivity extends AppCompatActivity {
                 String pass = passwordEditor.getText().toString().trim();
 
                 //if info is missing
+                     /*
                      if (!validInfo(fName,lName, Email, phone, pass)) {
                     //email.setError("Some fields are missing");
                     return;
                      }
+                     */
                      //create account
-                     else {
+                  //  else {
                          mAuth.createUserWithEmailAndPassword(Email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                          //creating user
                         @Override
@@ -99,6 +101,7 @@ public class registerActivity extends AppCompatActivity {
                                 Toast.makeText(registerActivity.this, "User has created", Toast.LENGTH_SHORT).show();
                                 i.putExtra("firstName",fName);
                                 i.putExtra("lastName",lName);
+                                i.putExtra("phone", phone);
                                 startActivity(i);
 
                             } else {
@@ -106,7 +109,7 @@ public class registerActivity extends AppCompatActivity {
                             }
                         }
                     });
-                }
+                //}
             }
         });
 
@@ -117,6 +120,7 @@ public class registerActivity extends AppCompatActivity {
             }
         });
          }
+/*
     //we use this web for validation of creating account
     //https://www.taimoorsikander.com/registration-form-validation-in-android-studio/
     private boolean validInfo(String fName, String lName, String email, String phone, String pass) {
@@ -170,5 +174,5 @@ public class registerActivity extends AppCompatActivity {
 
             return matcher.matches();
         }
-
+*/
 }

@@ -42,6 +42,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
     private List<hairCut> haircutList;
     private FirebaseAuth mAuth;
     private String fName ,lName;
+    private String phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //initialization
@@ -53,6 +54,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
         if(b!=null) {
             fName =(String) b.get("firstName");
             lName =(String) b.get("lastName");
+            phone =(String) b.get("phone");
         }
         findViews();
         mAuth = FirebaseAuth.getInstance();
@@ -129,11 +131,12 @@ public class selectAppointmentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String appointmentID = spinnerAppointment.getSelectedItem().toString();
                 String haircut = spinnerHaircut.getSelectedItem().toString();
-                String haircutID = haircut.substring(0, haircut.indexOf(',')+1);
+                String haircutID = haircut.substring(0, haircut.indexOf(','));
                 appointmentFB app = new appointmentFB();
                 /*?????????????????????how to get the user name????????????????????????????????*/
-                app.getAppointmendByID(appointmentID).child("name").setValue(fName);
+                app.getAppointmendByID(appointmentID).child("name").setValue((fName + " " + lName));
                 app.getAppointmendByID(appointmentID).child("haircut").setValue(haircutID);
+                app.getAppointmendByID(appointmentID).child("phone").setValue(phone);
                 Toast.makeText(getApplicationContext(),"selected successful", Toast.LENGTH_LONG).show();
             }
         });
@@ -141,7 +144,9 @@ public class selectAppointmentActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(selectAppointmentActivity.this,profileActivity.class));
+                Intent i = new Intent(selectAppointmentActivity.this,profileActivity.class);
+                i.putExtra("phone", phone);
+                startActivity(i);
             }
         });
     }

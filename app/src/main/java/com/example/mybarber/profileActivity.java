@@ -11,9 +11,10 @@ public class profileActivity extends AppCompatActivity {
     private Button home;
     private Button chooseTurn;
     private Button privateArea;
-    //private Button history;
+    private Button history;
     // private TextView welcome;
     String fName , lName;
+    String phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,9 @@ public class profileActivity extends AppCompatActivity {
         //get extras from register/login activity
         Bundle b = iin.getExtras();
         if(b!=null) {
-             fName =(String) b.get("firstName");
+            fName =(String) b.get("firstName");
             lName =(String) b.get("lastName");
+            phone = (String) b.get("phone");
         }
         findViews();
          myActivate();
@@ -37,6 +39,7 @@ public class profileActivity extends AppCompatActivity {
         home = findViewById(R.id.home);
         privateArea = findViewById(R.id.privateArea);
         chooseTurn= findViewById(R.id.chooseTurn);
+        history = findViewById(R.id.history);
     }
 
     //activate views &buttons
@@ -63,6 +66,15 @@ public class profileActivity extends AppCompatActivity {
                 Intent i = new Intent(profileActivity.this, selectAppointmentActivity.class);
                 i.putExtra("firstName", fName);
                 i.putExtra("lastName", lName);
+                i.putExtra("phone", phone);
+                startActivity(i);
+            }
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(profileActivity.this, appointmentsHistoryActivity.class);
+                i.putExtra("phone", phone);
                 startActivity(i);
             }
         });

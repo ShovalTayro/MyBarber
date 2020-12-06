@@ -77,6 +77,8 @@ public class loginActivity extends AppCompatActivity {
                              //////////////maybe doesn't work//////////
                                String fName= user.getDisplayName();
                                i.putExtra("firstName", fName);
+                               //i.putExtra("phone", phone);
+
                             startActivity(i);
                         } else {
                             Toast.makeText(loginActivity.this, "ERROR " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
