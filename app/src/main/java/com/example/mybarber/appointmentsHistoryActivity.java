@@ -86,7 +86,9 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(appointmentsHistoryActivity.this,profileActivity.class));
+                Intent i = new Intent(appointmentsHistoryActivity.this,profileActivity.class);
+                i.putExtra("phone", phone);
+                startActivity(i);
             }
         });
     }

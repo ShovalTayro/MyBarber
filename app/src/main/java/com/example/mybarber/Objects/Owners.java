@@ -33,6 +33,13 @@ public class Owners {
     public void setEmail(String email) {
         Email = email;
     }
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+    public String getPass() {
+        return pass;
+    }
+
 
     public void setPass(String pass) {
         this.pass = pass;

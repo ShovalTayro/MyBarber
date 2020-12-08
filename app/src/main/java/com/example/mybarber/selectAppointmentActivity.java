@@ -69,6 +69,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
     }
     //activate views &buttons
     private void myActivate() {
+        //take all available haircuts from firebase
         appointmentList = new ArrayList<>();
         appointmentFB appointment = new appointmentFB();
         FirebaseDatabase.getInstance().getReference().child("appointment").addListenerForSingleValueEvent(new ValueEventListener() {
