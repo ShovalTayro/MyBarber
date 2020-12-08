@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mybarber.Objects.Appointment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,6 +24,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class loginActivity extends AppCompatActivity {
 
@@ -71,16 +76,52 @@ public class loginActivity extends AppCompatActivity {
                         //if succeed to login alter
                         if (task.isSuccessful()) {
                             Toast.makeText(loginActivity.this, "User is logging", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(loginActivity.this, profileActivity.class);
-                            //get the userName
-                            FirebaseUser user = mAuth.getCurrentUser();
-                             //////////////maybe doesn't work//////////
-                               String fName= user.getDisplayName();
-                               i.putExtra("firstName", fName);
-                               //i.putExtra("phone", phone);
+                            //check if the user is admin
+                            FirebaseDatabase.getInstance().getReference().child("Admin").addListenerForSingleValueEvent(new ValueEventListener() {
+                                //if found admin get him from FB
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    //go through all admins
+                                    for (DataSnapshot s : snapshot.getChildren()) {
+                                        //if admin is the user who tru to log in
+                                        if (s.child("email").getValue(String.class).equals(Email)) {
+                                            Intent i = new Intent(loginActivity.this, managerActivity.class);
+                                            i.putExtra("firstName" , s.child("fName").getValue(String.class));
+                                            i.putExtra("lastName" , s.child("lName").getValue(String.class));
+                                            startActivity(i);
+                                        }
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            startActivity(i);
-                        } else {
+                                }
+                            });
+
+                            FirebaseDatabase.getInstance().getReference().child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                                //if found user get his name from FB
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    //go through all users
+                                    for (DataSnapshot s : snapshot.getChildren()) {
+                                        //if admin is the user who tru to log in
+                                        if (s.child("email").getValue(String.class).equals(Email)) {
+                                            Intent i = new Intent(loginActivity.this, profileActivity.class);
+                                            i.putExtra("firstName" , s.child("fName").getValue(String.class));
+                                            i.putExtra("lastName" , s.child("lName").getValue(String.class));
+                                            i.putExtra("phone", s.child("phone").getValue(String.class));
+                                            startActivity(i);
+                                        }
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                       }
+                        //on failure to login
+                        else {
                             Toast.makeText(loginActivity.this, "ERROR " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }

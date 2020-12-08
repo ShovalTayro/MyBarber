@@ -4,13 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mybarber.Objects.Appointment;
+import com.example.mybarber.fireBase.AdminFB;
 import com.example.mybarber.fireBase.usersFB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,6 +25,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,7 +40,9 @@ public class registerActivity extends AppCompatActivity {
     private Button back;
     private FirebaseAuth mAuth;
     private usersFB root;
-
+    private AdminFB root2;
+    private Spinner userSpinner;
+   private  String authSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //initialization
@@ -53,9 +61,28 @@ public class registerActivity extends AppCompatActivity {
         passwordEditor = (EditText) findViewById(R.id.editTextNumberPassword);
         firstName = (EditText) findViewById(R.id.editTextTexttFrirstName);
         lastName = (EditText) findViewById(R.id.editTextTexttLastName);
+        userSpinner= (Spinner) findViewById(R.id.userSpinner);
     }
     //activate views &buttons
     private void myActivate() {
+        ArrayList<String> userAuth = new ArrayList<String>();
+        userAuth.add("Admin");
+        userAuth.add("Client");
+        //make adapter to connect between the spinner to useerAuth
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(registerActivity.this, android.R.layout.simple_spinner_dropdown_item, userAuth);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        userSpinner.setAdapter(adapter);
+
+        //activate spinner
+        userSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 authSelected =parent.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
         register_button.setOnClickListener(new View.OnClickListener() {
                  @Override
@@ -80,30 +107,41 @@ public class registerActivity extends AppCompatActivity {
                          //creating user
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
                             if (task.isSuccessful()) {
-                                currentUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Toast.makeText(registerActivity.this, "Verification Email has sent. ", Toast.LENGTH_SHORT).show();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d("tag", "OnFailure: Email has not sent. " + e.getMessage());
-                                    }
-                                });
-                                //here need to create admin / user registration
-                                //add user to fireBase
-                                root = new usersFB();
-                                root.addUserToDB(fName,lName,phone,Email,pass);
-                               Intent i = new Intent(registerActivity.this, profileActivity.class);
-                                Toast.makeText(registerActivity.this, "User has created", Toast.LENGTH_SHORT).show();
-                                i.putExtra("firstName",fName);
-                                i.putExtra("lastName",lName);
-                                i.putExtra("phone", phone);
-                                startActivity(i);
-
+                                //check if user/admin and add him
+                                if(authSelected.equals("Admin")){
+                                    //check if there is admin
+                                    root2= new AdminFB();
+                                  //  if(root2.getAdmin()==null) {
+                                        //create admin
+                                    //    root2 = new AdminFB();
+                                        //add user to fireBase
+                                        root2.addAdminToDB(fName, lName, phone, Email, pass);
+                                        Intent i = new Intent(registerActivity.this, managerActivity.class);
+                                        Toast.makeText(registerActivity.this, "Admin has created", Toast.LENGTH_SHORT).show();
+                                        i.putExtra("firstName", fName);
+                                        i.putExtra("lastName", lName);
+                                        // i.putExtra("phone", phone);
+                                        startActivity(i);
+                                   // }
+                                    //else {
+                                        //check if stuck and maybe refresh login
+                                      //  Toast.makeText(registerActivity.this, "Error, there's already Admin", Toast.LENGTH_LONG).show();
+                                    //}
+                                }
+                                else {
+                                    //create user
+                                    root = new usersFB();
+                                    //add user to fireBase
+                                    root.addUserToDB(fName,lName,phone,Email,pass);
+                                    Intent i = new Intent(registerActivity.this, profileActivity.class);
+                                    Toast.makeText(registerActivity.this, "User has created", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("firstName",fName);
+                                    i.putExtra("lastName",lName);
+                                    i.putExtra("phone", phone);
+                                    startActivity(i);
+                                }
+                                //failure to register
                             } else {
                                 Toast.makeText(registerActivity.this, "ERROR " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
