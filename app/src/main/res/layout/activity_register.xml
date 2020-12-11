@@ -133,7 +133,8 @@
         app:backgroundTint="@color/white"
         tools:layout_editor_absoluteX="95dp"
         tools:layout_editor_absoluteY="501dp"
-        tools:visibility="visible" />
+        tools:visibility="visible"
+        tools:ignore="MissingConstraints" />
     <!--
         <ProgressBar
             android:id="@+id/progressBar"

@@ -70,7 +70,7 @@ public class registerActivity extends AppCompatActivity {
         userAuth.add("Client");
         //make adapter to connect between the spinner to useerAuth
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(registerActivity.this, android.R.layout.simple_spinner_dropdown_item, userAuth);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userSpinner.setAdapter(adapter);
 
         //activate spinner

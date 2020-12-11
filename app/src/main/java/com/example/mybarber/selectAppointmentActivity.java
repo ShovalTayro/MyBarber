@@ -134,7 +134,6 @@ public class selectAppointmentActivity extends AppCompatActivity {
                 String haircut = spinnerHaircut.getSelectedItem().toString();
                 String haircutID = haircut.substring(0, haircut.indexOf(','));
                 appointmentFB app = new appointmentFB();
-                /*?????????????????????how to get the user name????????????????????????????????*/
                 app.getAppointmendByID(appointmentID).child("name").setValue((fName + " " + lName));
                 app.getAppointmendByID(appointmentID).child("haircut").setValue(haircutID);
                 app.getAppointmendByID(appointmentID).child("phone").setValue(phone);
