@@ -5,114 +5,138 @@
     android:id="@+id/hasUser"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/logo"
-    tools:context=".registerActivity">
+    android:background="@drawable/my_background"
+    tools:context=".Activities.registerActivity">
 
     <EditText
         android:id="@+id/editTextTexttLastName"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter a lastName"
+        android:textColorHint="@android:color/secondary_text_light"
         android:inputType="textEmailAddress"
-        android:textColorHint="#E6857474"
         app:layout_constraintBottom_toTopOf="@+id/back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTexttFrirstName"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.14" />
 
     <EditText
         android:id="@+id/editTextTexttFrirstName"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter a firstName"
         android:inputType="textEmailAddress"
-        android:textColorHint="#5C5454"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="152dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberPassword"
+        app:layout_constraintVertical_bias="0.045" />
 
     <EditText
         android:id="@+id/editTextTextEmail"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter an email"
+        android:textColorHint="@color/common_google_signin_btn_text_light_focused"
         android:inputType="textEmailAddress"
-        android:textColorHint="#9F8989"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="318dp" />
-
-    <Button
-        android:id="@+id/back"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:background="@android:color/transparent"
-        android:text="back"
-        android:textColorHint="#FF80AB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTexttFrirstName"
-        app:layout_constraintVertical_bias="0.865" />
-
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:background="@android:color/transparent"
-        android:text="register"
-        android:textColorHint="#E6857474"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
-        app:layout_constraintVertical_bias="0.538" />
-
-    <EditText
-        android:id="@+id/editTextNumberPassword"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Enter a passowrd"
-        android:inputType="numberPassword"
-        android:textColorHint="#E6857474"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myBarber"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <TextView
+        android:id="@+id/myBarber"
+        android:layout_width="245dp"
+        android:layout_height="71dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="12sp"
+        android:text="     myBarber"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:text="back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTexttFrirstName"
+        app:layout_constraintVertical_bias="0.665" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="222dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:text="register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
+        app:layout_constraintVertical_bias="0.289" />
+
+    <EditText
+        android:id="@+id/editTextNumberPassword"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Enter a passowrd"
+        android:textColorHint="@android:color/secondary_text_dark"
+        android:inputType="numberPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmail"
-        app:layout_constraintVertical_bias="0.257" />
+        app:layout_constraintVertical_bias="0.039" />
 
     <EditText
         android:id="@+id/editTextPhoneNumber"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:hint="Enter a phonenumber"
         android:inputType="numberPassword"
-        android:textColorHint="#E6857474"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="389dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTexttLastName"
+        app:layout_constraintVertical_bias="0.057" />
 
     <Spinner
         android:id="@+id/userSpinner"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="212dp"
+        android:layout_height="48dp"
         android:background="@color/white"
         android:textColor="@color/black"
         android:visibility="visible"
-        app:backgroundTint="@color/material_on_surface_stroke"
+        app:backgroundTint="@android:color/background_light"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="549dp"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="475dp"
         tools:visibility="visible" />
     <!--
         <ProgressBar

@@ -1,30 +1,31 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mybarber.Objects.Appointment;
+import com.example.mybarber.R;
 import com.example.mybarber.fireBase.appointmentFB;
-import com.example.mybarber.fireBase.hairCutsFB;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Calendar;
 
 public class addAppointmentActivity extends AppCompatActivity {
     DatePickerDialog picker;
-    EditText date;
-    EditText hour;
+    TextView date;
+    TextView time;
+    private Button selectDate;
+    private Button selectHour;
     private Button add;
     private  Button back;
     private FirebaseAuth mAuth;
@@ -40,16 +41,16 @@ public class addAppointmentActivity extends AppCompatActivity {
     }
     //set buttons &the text view
     private void findViews() {
-        date = findViewById(R.id.date_editText);
-        date.setInputType(InputType.TYPE_NULL);
-        hour = findViewById(R.id.time_editText);
+        date = findViewById(R.id.dateView);
+        time = findViewById(R.id.timeView);
+        selectDate = findViewById(R.id.dateButton);
+        selectHour = findViewById(R.id.timeButton);
         add = findViewById(R.id.add_button);
         back = findViewById(R.id.back_button);
     }
     //activate views &buttons
     private void myActivate() {
-
-        date.setOnClickListener(new View.OnClickListener() {
+        selectDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar cldr = Calendar.getInstance();
@@ -68,12 +69,34 @@ public class addAppointmentActivity extends AppCompatActivity {
 ;           }
         });
 
+        selectHour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar myCalender = Calendar.getInstance();
+                int hour = myCalender.get(Calendar.HOUR_OF_DAY);
+                int minute = myCalender.get(Calendar.MINUTE);
+                TimePickerDialog.OnTimeSetListener myTimeListener = new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hour, int minute) {
+                        if (view.isShown()) {
+                            myCalender.set(Calendar.HOUR, hour);
+                            myCalender.set(Calendar.MINUTE, minute);
+                            time.setText(hour + ":" + minute);
+                        }
+                    }
+                };
+                TimePickerDialog timePickerDialog = new TimePickerDialog(addAppointmentActivity.this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar, myTimeListener, hour, minute, true);
+                timePickerDialog.setTitle("Choose hour:");
+                timePickerDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                timePickerDialog.show();
+            }
+        });
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //create the info as a string without any leading and trailing white space
                 String stringDate = date.getText().toString().trim();
-                String stringHour = hour.getText().toString().trim();
+                String stringHour = time.getText().toString().trim();
                 //if info is missing
                 if (TextUtils.isEmpty(stringDate) || TextUtils.isEmpty(stringHour)) {
                     date.setError("Some fields are missing");
@@ -92,7 +115,7 @@ public class addAppointmentActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(addAppointmentActivity.this,allAppointmentActivity.class));
+                startActivity(new Intent(addAppointmentActivity.this, allAppointmentActivity.class));
             }
         });
     }

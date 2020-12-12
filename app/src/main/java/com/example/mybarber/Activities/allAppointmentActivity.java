@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mybarber.Adapter.appointmentAdapter;
-import com.example.mybarber.Adapter.haircutAdapter;
 import com.example.mybarber.Objects.Appointment;
-import com.example.mybarber.Objects.hairCut;
+import com.example.mybarber.R;
 import com.example.mybarber.fireBase.appointmentFB;
-import com.example.mybarber.fireBase.hairCutsFB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -68,11 +66,13 @@ public class allAppointmentActivity extends AppCompatActivity {
         appointmentsAdapter = new appointmentAdapter(allAppointmentActivity.this);
         recyclerView.setAdapter(appointmentsAdapter);
         appointmentFB appointment = new appointmentFB();
+        //get all appointments from FB
         DatabaseReference dr = appointment.allAppointments();
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
             //update appointments
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //add all appointments to list
                 for (DataSnapshot s : snapshot.getChildren()) {
                     appointmentList.add(s.getValue(Appointment.class));
                 }
@@ -87,7 +87,7 @@ public class allAppointmentActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(allAppointmentActivity.this,managerActivity.class));
+                startActivity(new Intent(allAppointmentActivity.this, managerActivity.class));
             }
         });
     }

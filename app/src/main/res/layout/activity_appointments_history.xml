@@ -4,29 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".appointmentsHistoryActivity">
+    android:background="@drawable/razor_"
+    tools:context=".Activities.appointmentsHistoryActivity">
 
     <Button
         android:id="@+id/back_button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_width="102dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/button_shape"
+        android:layoutDirection="ltr"
         android:text="@string/back"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintVertical_bias="0.091" />
 
     <ScrollView
         android:id="@+id/ScrollView"
-        android:layout_width="399dp"
-        android:layout_height="597dp"
+        android:layout_width="425dp"
+        android:layout_height="497dp"
         android:layout_marginBottom="4dp"
-        android:background="@color/white"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headline"
         app:layout_constraintVertical_bias="0.12">
@@ -39,27 +45,33 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recV2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/common_google_signin_btn_text_dark_disabled" />
+                android:layout_width="358dp"
+                android:layout_height="166dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@android:color/transparent" />
 
         </RelativeLayout>
     </ScrollView>
 
     <TextView
         android:id="@+id/headline"
-        android:layout_width="234dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Appointments History"
+        android:layout_width="274dp"
+        android:layout_height="33dp"
+        android:layoutDirection="ltr"
+        android:text="@string/appointments_history"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/ScrollView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

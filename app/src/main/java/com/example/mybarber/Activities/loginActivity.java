@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 //import android.app.AlertDialog;
 
@@ -16,14 +16,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mybarber.Objects.Appointment;
+import com.example.mybarber.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -97,15 +96,16 @@ public class loginActivity extends AppCompatActivity {
 
                                 }
                             });
-
+                            //check if user
                             FirebaseDatabase.getInstance().getReference().child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-                                //if found user get his name from FB
+                                //if found the user get his name from FB
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     //go through all users
                                     for (DataSnapshot s : snapshot.getChildren()) {
-                                        //if admin is the user who tru to log in
+                                        //if this is the user who try to log in
                                         if (s.child("email").getValue(String.class).equals(Email)) {
+                                            //go to user profile
                                             Intent i = new Intent(loginActivity.this, profileActivity.class);
                                             i.putExtra("firstName" , s.child("fName").getValue(String.class));
                                             i.putExtra("lastName" , s.child("lName").getValue(String.class));
@@ -129,13 +129,14 @@ public class loginActivity extends AppCompatActivity {
             }
         }
     });
-        back.setOnClickListener(new View.OnClickListener() {
+
+    back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(loginActivity.this,MainActivity.class));
+                startActivity(new Intent(loginActivity.this, MainActivity.class));
             }
         });
-     forgot_pass.setOnClickListener(new View.OnClickListener(){
+    forgot_pass.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
             EditText resetMail = new EditText(v.getContext());

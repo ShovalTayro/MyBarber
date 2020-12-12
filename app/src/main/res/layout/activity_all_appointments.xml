@@ -5,33 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".allAppointmentActivity">
+    tools:context=".Activities.allAppointmentActivity">
 
     <Button
         android:id="@+id/addAppointment_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="251dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="9dp"
         android:layout_marginRight="9dp"
+        android:background="@drawable/button_shape"
         android:text="@string/add_new_appointment"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/headline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.012" />
+        app:layout_constraintVertical_bias="0.007" />
 
     <Button
         android:id="@+id/back_button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
+        android:layout_width="111dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:background="@drawable/button_shape"
         android:text="@string/back"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/addAppointment_button"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.096" />
@@ -65,8 +69,8 @@
 
     <TextView
         android:id="@+id/headline"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="133dp"
+        android:layout_height="75dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
@@ -81,5 +85,6 @@
         app:layout_constraintEnd_toStartOf="@+id/addAppointment_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

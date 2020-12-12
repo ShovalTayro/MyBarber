@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 /*
 import android.os.Bundle;
 
@@ -28,6 +28,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mybarber.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
@@ -67,14 +69,12 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         //welcome = findViewById(R.id.welcomeText);
         login = (Button)findViewById(R.id.login_button);
-        //myBarber = (TextView)findViewById(R.id.myBarber2);
+      //  myBarber = (TextView)findViewById(R.id.myBarber2);
         register = (Button)findViewById(R.id.register_button);
     }
 
     //activate views &buttons
     private void myActivate() {
-        login.setBackgroundResource(R.drawable.button_shape);
-        register.setBackgroundResource(R.drawable.button_shape);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,11 +86,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, registerActivity.class);
-                // i.putExtra("user_id", user.getUid());
                 startActivity(i);
             }
         });
-
     }
 /*
     private void logedInModifier() {

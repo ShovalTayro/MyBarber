@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mybarber.Adapter.appointmentAdapter;
-import com.example.mybarber.Adapter.haircutAdapter;
 import com.example.mybarber.Objects.Appointment;
-import com.example.mybarber.Objects.hairCut;
+import com.example.mybarber.R;
 import com.example.mybarber.fireBase.appointmentFB;
-import com.example.mybarber.fireBase.hairCutsFB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -41,7 +38,7 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointments_history);
         Intent iin= getIntent();
-        //get extras from register/login activity
+        //get extras from profile activity
         Bundle b = iin.getExtras();
         if(b!=null) {
             phone =(String) b.get("phone");
@@ -62,15 +59,16 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         appointmentList = new ArrayList<>();
-
         appointmentsAdapter = new appointmentAdapter(appointmentsHistoryActivity.this);
         recyclerView.setAdapter(appointmentsAdapter);
         appointmentFB appointment = new appointmentFB();
+        //get all appointments from FB
         FirebaseDatabase.getInstance().getReference().child("appointment").addListenerForSingleValueEvent(new ValueEventListener() {
-            //if there is any change update
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //go through all appointments
                 for (DataSnapshot s : snapshot.getChildren()) {
+                    //if this is user appointment add to list
                     if (s.child("phone").getValue(String.class).equals(phone)) {
                         appointmentList.add(s.getValue(Appointment.class));
                     }
@@ -86,7 +84,7 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(appointmentsHistoryActivity.this,profileActivity.class);
+                Intent i = new Intent(appointmentsHistoryActivity.this, profileActivity.class);
                 i.putExtra("phone", phone);
                 startActivity(i);
             }

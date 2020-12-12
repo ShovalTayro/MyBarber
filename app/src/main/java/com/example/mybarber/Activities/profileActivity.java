@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mybarber.R;
+
 public class profileActivity extends AppCompatActivity {
     private Button home;
     private Button chooseTurn;
-    private Button privateArea;
+    //private Button privateArea;
     private Button history;
     // private TextView welcome;
     String fName , lName;
@@ -37,7 +39,7 @@ public class profileActivity extends AppCompatActivity {
     private void findViews() {
         //welcome = findViewById(R.id.welcomeText);
         home = findViewById(R.id.home);
-        privateArea = findViewById(R.id.privateArea);
+       // privateArea = findViewById(R.id.privateArea);
         chooseTurn= findViewById(R.id.chooseTurn);
         history = findViewById(R.id.history);
     }
@@ -51,6 +53,7 @@ public class profileActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        /*
         privateArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +63,7 @@ public class profileActivity extends AppCompatActivity {
                // startActivity(i);
             }
         });
+        */
         chooseTurn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -24,5 +24,6 @@
     <string name="example_12_00">example 12:00</string>
     <string name="shoval">SHOVAL</string>
     <string name="select" />
-    <string name="log_in">Log-in</string>
+    <string name="select_date">select date</string>
+    <string name="appointments_history">_ Appointments History</string>
 </resources>

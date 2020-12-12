@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mybarber.R;
 
 public class managerActivity extends AppCompatActivity {
     private Button calendar;
@@ -31,8 +33,9 @@ public class managerActivity extends AppCompatActivity {
         calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  Intent i = new Intent(managerActivity.this, allAppointmentActivity.class);
-                  startActivity(i);
+                Intent i = new Intent(managerActivity.this, allAppointmentActivity.class);
+                startActivity(i);
+
             }
         });
         haircuts.setOnClickListener(new View.OnClickListener() {

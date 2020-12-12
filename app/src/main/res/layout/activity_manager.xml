@@ -4,32 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/logo"
-    tools:context=".managerActivity">
+    android:background="@drawable/razor_"
+    tools:context=".Activities.managerActivity">
 
     <Button
         android:id="@+id/calendar_button"
-        android:layout_width="189dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="214dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:background="@drawable/button_shape"
         android:text="@string/calendar"
-        app:layout_constraintBottom_toTopOf="@+id/haircuts_button"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.657" />
 
     <Button
         android:id="@+id/haircuts_button"
-        android:layout_width="182dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="364dp"
+        android:layout_width="325dp"
+        android:layout_height="57dp"
+        android:background="@drawable/button_shape"
         android:text="@string/all_haircuts"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendar_button" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

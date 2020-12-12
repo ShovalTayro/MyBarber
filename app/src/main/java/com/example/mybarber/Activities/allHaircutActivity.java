@@ -1,12 +1,9 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mybarber.Adapter.haircutAdapter;
 import com.example.mybarber.Objects.hairCut;
+import com.example.mybarber.R;
 import com.example.mybarber.fireBase.hairCutsFB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -89,7 +87,7 @@ public class allHaircutActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(allHaircutActivity.this,managerActivity.class));
+                startActivity(new Intent(allHaircutActivity.this, managerActivity.class));
             }
         });
     }
