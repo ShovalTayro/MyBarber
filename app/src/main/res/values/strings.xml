@@ -25,4 +25,5 @@
     <string name="shoval">SHOVAL</string>
     <string name="select" />
     <string name="select_date">select date</string>
+    <string name="appointments_history">_ Appointments History</string>
 </resources>

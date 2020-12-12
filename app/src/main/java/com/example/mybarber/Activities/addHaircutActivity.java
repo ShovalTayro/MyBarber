@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,15 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mybarber.Objects.hairCut;
+import com.example.mybarber.R;
 import com.example.mybarber.fireBase.hairCutsFB;
-import com.example.mybarber.fireBase.initializeFB;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class addHaircutActivity extends AppCompatActivity {
     EditText haircut;
@@ -71,7 +65,7 @@ public class addHaircutActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(addHaircutActivity.this,allHaircutActivity.class));
+                startActivity(new Intent(addHaircutActivity.this, allHaircutActivity.class));
             }
         });
     }

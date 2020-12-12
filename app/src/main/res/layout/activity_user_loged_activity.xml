@@ -4,83 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profileActivity">
+    android:background="@drawable/razor_"
+    tools:context=".Activities.profileActivity">
 
     <Button
         android:id="@+id/chooseTurn"
-        android:layout_width="105dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="261dp"
-        android:layout_marginLeft="261dp"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="433dp"
+        android:layout_width="194dp"
+        android:layout_height="43dp"
         android:text="choose Turn"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622" />
 
     <Button
         android:id="@+id/home"
-        android:layout_width="53dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="329dp"
-        android:layout_marginLeft="329dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
-        android:layout_marginBottom="660dp"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:background="@drawable/button_shape"
+        android:layoutDirection="ltr"
         android:text="Home"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/privateArea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="289dp"
-        android:layout_marginLeft="289dp"
-        android:layout_marginTop="624dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginRight="29dp"
-        android:layout_marginBottom="59dp"
-        android:text="privateArea"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
         android:id="@+id/history"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="624dp"
-        android:layout_marginEnd="268dp"
-        android:layout_marginRight="268dp"
-        android:layout_marginBottom="59dp"
+        android:layout_width="194dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="68dp"
+        android:background="@drawable/button_shape"
         android:text="history"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/chooseTurn"
+        app:layout_constraintVertical_bias="0.331" />
 
     <TextView
         android:id="@+id/welcome"
-        android:layout_width="143dp"
-        android:layout_height="40dp"
-        android:text="welcome to MyBarber"
+        android:layout_width="259dp"
+        android:layout_height="44dp"
+        android:layoutDirection="ltr"
+        android:text="Welcome to MyBarber"
+        android:textColor="@color/black"
+
+        android:textSize="26sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.993"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164" />
+        app:layout_constraintVertical_bias="0.149" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

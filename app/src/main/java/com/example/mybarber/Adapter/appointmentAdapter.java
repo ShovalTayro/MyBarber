@@ -21,7 +21,7 @@ import java.util.List;
 public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.ViewHolder> {
     private List<Appointment> appointmentsList=new ArrayList();
     private Context info;
-
+    //constructor
     public appointmentAdapter(Context info) {
         this.info = info;
     }

@@ -1,25 +1,21 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mybarber.Adapter.appointmentAdapter;
-import com.example.mybarber.Adapter.haircutAdapter;
 import com.example.mybarber.Objects.Appointment;
 import com.example.mybarber.Objects.hairCut;
+import com.example.mybarber.R;
 import com.example.mybarber.fireBase.appointmentFB;
 import com.example.mybarber.fireBase.hairCutsFB;
-import com.example.mybarber.fireBase.initializeFB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,8 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.view.View;
-import android.widget.AdapterView;
+
 import android.widget.Toast;
 
 public class selectAppointmentActivity extends AppCompatActivity {
@@ -72,15 +67,18 @@ public class selectAppointmentActivity extends AppCompatActivity {
         //take all available haircuts from firebase
         appointmentList = new ArrayList<>();
         appointmentFB appointment = new appointmentFB();
+        //check if there are any appointments in FB
         FirebaseDatabase.getInstance().getReference().child("appointment").addListenerForSingleValueEvent(new ValueEventListener() {
-          //if there is any change update
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //go through all appointments
                 for (DataSnapshot s : snapshot.getChildren()) {
+                    //if appointment is free add to list
                     if (s.child("name").getValue(String.class).equals("Available")) {
                         appointmentList.add(s.getValue(Appointment.class));
                     }
                 }
+                //make adapter to connect between the spinner to appointment list
                 ArrayAdapter<Appointment> adapter = new ArrayAdapter<Appointment>(selectAppointmentActivity.this, android.R.layout.simple_spinner_dropdown_item, appointmentList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerAppointment.setAdapter(adapter);
@@ -89,6 +87,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        //activate spinner
         spinnerAppointment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -103,12 +102,14 @@ public class selectAppointmentActivity extends AppCompatActivity {
         hairCutsFB haircuts = new hairCutsFB();
         DatabaseReference dr2 = haircuts.allHairCuts();
         dr2.addListenerForSingleValueEvent(new ValueEventListener() {
-            //if there is any change update
+            //go through all haircuts
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //add all haircuts to list
                 for (DataSnapshot s : snapshot.getChildren()) {
                     haircutList.add(s.getValue(hairCut.class));
                 }
+                //make adapter to connect between the spinner to haircuts list
                 ArrayAdapter<hairCut> adapter = new ArrayAdapter<hairCut>(selectAppointmentActivity.this, android.R.layout.simple_spinner_dropdown_item, haircutList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerHaircut.setAdapter(adapter);
@@ -117,6 +118,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        //activate spinner
         spinnerHaircut.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

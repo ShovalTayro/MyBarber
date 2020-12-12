@@ -1,8 +1,7 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,20 +13,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mybarber.Objects.Appointment;
+import com.example.mybarber.R;
 import com.example.mybarber.fireBase.AdminFB;
 import com.example.mybarber.fireBase.usersFB;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public class registerActivity extends AppCompatActivity {
@@ -39,8 +33,8 @@ public class registerActivity extends AppCompatActivity {
     private Button register_button;
     private Button back;
     private FirebaseAuth mAuth;
-    private usersFB root;
-    private AdminFB root2;
+    private usersFB useroot;
+    private AdminFB adminRoot;
     private Spinner userSpinner;
    private  String authSelected;
     @Override
@@ -68,7 +62,7 @@ public class registerActivity extends AppCompatActivity {
         ArrayList<String> userAuth = new ArrayList<String>();
         userAuth.add("Admin");
         userAuth.add("Client");
-        //make adapter to connect between the spinner to useerAuth
+        //make adapter to connect between the spinner to userAuth
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(registerActivity.this, android.R.layout.simple_spinner_dropdown_item, userAuth);
         //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userSpinner.setAdapter(adapter);
@@ -111,12 +105,12 @@ public class registerActivity extends AppCompatActivity {
                                 //check if user/admin and add him
                                 if(authSelected.equals("Admin")){
                                     //check if there is admin
-                                    root2= new AdminFB();
+                                    adminRoot = new AdminFB();
                                   //  if(root2.getAdmin()==null) {
                                         //create admin
                                     //    root2 = new AdminFB();
                                         //add user to fireBase
-                                        root2.addAdminToDB(fName, lName, phone, Email, pass);
+                                        adminRoot.addAdminToDB(fName, lName, phone, Email, pass);
                                         Intent i = new Intent(registerActivity.this, managerActivity.class);
                                         Toast.makeText(registerActivity.this, "Admin has created", Toast.LENGTH_SHORT).show();
                                         i.putExtra("firstName", fName);
@@ -131,9 +125,9 @@ public class registerActivity extends AppCompatActivity {
                                 }
                                 else {
                                     //create user
-                                    root = new usersFB();
+                                    useroot = new usersFB();
                                     //add user to fireBase
-                                    root.addUserToDB(fName,lName,phone,Email,pass);
+                                    useroot.addUserToDB(fName,lName,phone,Email,pass);
                                     Intent i = new Intent(registerActivity.this, profileActivity.class);
                                     Toast.makeText(registerActivity.this, "User has created", Toast.LENGTH_SHORT).show();
                                     i.putExtra("firstName",fName);

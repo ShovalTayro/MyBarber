@@ -1,4 +1,4 @@
-package com.example.mybarber;
+package com.example.mybarber.Activities;
 /*
 import android.os.Bundle;
 
@@ -26,14 +26,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mybarber.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button register;
-    private TextView myBarber;
+   // private TextView myBarber;
     /*private TextView welcome;
     private TextView loginT;
     */
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         //welcome = findViewById(R.id.welcomeText);
         login = (Button)findViewById(R.id.login_button);
-        myBarber = (TextView)findViewById(R.id.myBarber2);
+      //  myBarber = (TextView)findViewById(R.id.myBarber2);
         register = (Button)findViewById(R.id.register_button);
     }
 
@@ -85,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, registerActivity.class);
-                // i.putExtra("user_id", user.getUid());
                 startActivity(i);
             }
         });
