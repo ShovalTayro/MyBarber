@@ -5,73 +5,28 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/razor_"
+    android:background="@drawable/logo"
     app:layoutDescription="@xml/activity_main_scene"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/myBarber2"
-        android:layout_width="245dp"
-        android:layout_height="71dp"
-        android:background="@android:color/transparent"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="12sp"
-        android:text="     myBarber"
-        android:textColor="@color/black"
-        android:textSize="36sp"
-        android:textStyle="bold|italic"
-        android:typeface="monospace"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.668"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.103" />
 
     <Button
         android:id="@+id/register_button"
         android:layout_width="110dp"
         android:layout_height="53dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_shape"
         android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/login_button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        app:layout_constraintVertical_bias="0.073" />
-
-    <Button
-        android:id="@+id/manager_button"
-        android:layout_width="110dp"
-        android:layout_height="53dp"
-        android:background="@android:color/transparent"
-        android:text="manager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/login_button"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_button_button"
+        android:textColor="@android:color/primary_text_dark"
         app:layout_constraintVertical_bias="0.073" />
 
     <Button
         android:id="@+id/login_button"
         android:layout_width="109dp"
         android:layout_height="51dp"
-        android:background="@android:color/transparent"
-        android:text="Log-in"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
-
-    <Button
-        android:id="@+id/appointment_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="258dp"
-        tools:layout_editor_absoluteY="654dp" />
+        android:background="@drawable/button_shape"
+        android:text="@string/log_in"
+        android:shadowColor="@color/cardview_shadow_start_color"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="100"
+        />
 </androidx.constraintlayout.motion.widget.MotionLayout>

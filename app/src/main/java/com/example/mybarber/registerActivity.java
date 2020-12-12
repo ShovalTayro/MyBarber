@@ -112,22 +112,23 @@ public class registerActivity extends AppCompatActivity {
                                 if(authSelected.equals("Admin")){
                                     //check if there is admin
                                     root2= new AdminFB();
-                                  //  if(root2.getAdmin()==null) {
-                                        //create admin
-                                    //    root2 = new AdminFB();
-                                        //add user to fireBase
-                                        root2.addAdminToDB(fName, lName, phone, Email, pass);
-                                        Intent i = new Intent(registerActivity.this, managerActivity.class);
-                                        Toast.makeText(registerActivity.this, "Admin has created", Toast.LENGTH_SHORT).show();
-                                        i.putExtra("firstName", fName);
-                                        i.putExtra("lastName", lName);
-                                        // i.putExtra("phone", phone);
-                                        startActivity(i);
-                                   // }
-                                    //else {
+                                    root2.getAdmin();
+                                   if(root2==null) {
+                                       //create admin
+                                       //    root2 = new AdminFB();
+                                       //add user to fireBase
+                                       root2.addAdminToDB(fName, lName, phone, Email, pass);
+                                       Intent i = new Intent(registerActivity.this, managerActivity.class);
+                                       Toast.makeText(registerActivity.this, "Admin has created", Toast.LENGTH_SHORT).show();
+                                       i.putExtra("firstName", fName);
+                                       i.putExtra("lastName", lName);
+                                       // i.putExtra("phone", phone);
+                                       startActivity(i);
+                                   }
+                                    else {
                                         //check if stuck and maybe refresh login
-                                      //  Toast.makeText(registerActivity.this, "Error, there's already Admin", Toast.LENGTH_LONG).show();
-                                    //}
+                                        Toast.makeText(registerActivity.this, "Error, there's already Admin", Toast.LENGTH_LONG).show();
+                                    }
                                 }
                                 else {
                                     //create user

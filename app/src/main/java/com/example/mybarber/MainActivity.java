@@ -26,16 +26,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button register;
-    private Button manager;
-    private Button appointment;
-    private TextView myBarber;
+   // private TextView myBarber;
     /*private TextView welcome;
     private TextView loginT;
     */
@@ -70,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         //welcome = findViewById(R.id.welcomeText);
         login = (Button)findViewById(R.id.login_button);
-        myBarber = (TextView)findViewById(R.id.myBarber2);
+        //myBarber = (TextView)findViewById(R.id.myBarber2);
         register = (Button)findViewById(R.id.register_button);
-        manager = (Button)findViewById(R.id.manager_button);
-        appointment = (Button)findViewById(R.id.appointment_button);
     }
 
     //activate views &buttons
     private void myActivate() {
+        login.setBackgroundResource(R.drawable.button_shape);
+        register.setBackgroundResource(R.drawable.button_shape);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,23 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        manager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, managerActivity.class);
-                // i.putExtra("user_id", user.getUid());
-                startActivity(i);
-            }
-        });
 
-        appointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, selectAppointmentActivity.class);
-                // i.putExtra("user_id", user.getUid());
-                startActivity(i);
-            }
-        });
     }
 /*
     private void logedInModifier() {
