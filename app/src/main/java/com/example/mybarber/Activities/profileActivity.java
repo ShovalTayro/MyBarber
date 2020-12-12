@@ -78,6 +78,8 @@ public class profileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(profileActivity.this, appointmentsHistoryActivity.class);
+                i.putExtra("firstName", fName);
+                i.putExtra("lastName", lName);
                 i.putExtra("phone", phone);
                 startActivity(i);
             }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/my_background"
     tools:context=".Activities.allHaircutActivity">
 
     <Button
@@ -44,7 +44,7 @@
         android:layout_width="413dp"
         android:layout_height="597dp"
         android:layout_marginBottom="4dp"
-        android:background="@color/white"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
                 android:id="@+id/recV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/common_google_signin_btn_text_dark_disabled" />
+                android:background="@android:color/transparent" />
 
         </RelativeLayout>
     </ScrollView>

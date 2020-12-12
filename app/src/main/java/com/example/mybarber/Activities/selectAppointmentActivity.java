@@ -147,6 +147,8 @@ public class selectAppointmentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(selectAppointmentActivity.this,profileActivity.class);
+                i.putExtra("firstName", fName);
+                i.putExtra("lastName", lName);
                 i.putExtra("phone", phone);
                 startActivity(i);
             }
