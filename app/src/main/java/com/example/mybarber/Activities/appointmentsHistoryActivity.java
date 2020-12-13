@@ -29,7 +29,7 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private List<Appointment> appointmentList;
-    private String phone;
+    private String phone, fName, lName;
     private com.example.mybarber.Adapter.appointmentAdapter appointmentsAdapter;
 
     @Override
@@ -41,6 +41,8 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
         //get extras from profile activity
         Bundle b = iin.getExtras();
         if(b!=null) {
+            fName =(String) b.get("firstName");
+            lName =(String) b.get("lastName");
             phone =(String) b.get("phone");
         }
         findViews();
@@ -85,6 +87,8 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(appointmentsHistoryActivity.this, profileActivity.class);
+                i.putExtra("firstName", fName);
+                i.putExtra("lastName", lName);
                 i.putExtra("phone", phone);
                 startActivity(i);
             }

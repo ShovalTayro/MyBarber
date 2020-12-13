@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/razor_"
+    android:background="@drawable/my_background"
     tools:context=".Activities.appointmentsHistoryActivity">
 
     <Button
@@ -45,14 +45,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recV2"
-                android:layout_width="358dp"
-                android:layout_height="166dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="1dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginBottom="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent" />
 
         </RelativeLayout>
