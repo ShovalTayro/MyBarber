@@ -13,7 +13,9 @@
         android:layout_height="63dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="84dp"
+        android:layoutDirection="ltr"
+
         android:background="@drawable/button_shape"
         android:text="@string/back"
         android:textColor="@color/black"
@@ -24,6 +26,8 @@
 
     <Button
         android:id="@+id/add_button"
+        android:layoutDirection="ltr"
+
         android:layout_width="111dp"
         android:layout_height="63dp"
         android:layout_marginEnd="6dp"
@@ -49,10 +53,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449" />
+        app:layout_constraintVertical_bias="0.453" />
 
     <EditText
         android:id="@+id/haircut_editText"
@@ -65,18 +69,18 @@
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintHorizontal_bias="0.702"
         app:layout_constraintStart_toEndOf="@+id/haircut_textview"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0.317" />
 
     <TextView
         android:id="@+id/price_textview"
-        android:layout_width="41dp"
-        android:layout_height="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="59dp"
         android:layout_marginLeft="59dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/price"
@@ -99,29 +103,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/price_textview"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.485" />
 
     <ImageView
         android:id="@+id/picture"
-        android:layout_width="218dp"
-        android:layout_height="169dp"
+        android:layout_width="221dp"
+        android:layout_height="156dp"
         app:layout_constraintBottom_toTopOf="@+id/haircut_editText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.657"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.516"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/add_picture"
         android:layout_width="212dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="36dp"
         android:text="gallery option"
         app:layout_constraintBottom_toTopOf="@+id/back_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,9 @@
 package com.example.mybarber.Activities;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,12 +13,14 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.example.mybarber.Objects.Appointment;
 import com.example.mybarber.Objects.hairCut;
 import com.example.mybarber.R;
 import com.example.mybarber.fireBase.appointmentFB;
 import com.example.mybarber.fireBase.hairCutsFB;
+import com.example.mybarber.fireBase.messageFB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,6 +48,7 @@ public class selectAppointmentActivity extends AppCompatActivity {
         //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_appointment);
+        createNotificationChannel();
         Intent iin= getIntent();
         //get extras from register/login activity
         Bundle b = iin.getExtras();
@@ -139,7 +145,12 @@ public class selectAppointmentActivity extends AppCompatActivity {
                 app.getAppointmendByID(appointmentID).child("name").setValue((fName + " " + lName));
                 app.getAppointmendByID(appointmentID).child("haircut").setValue(haircutID);
                 app.getAppointmendByID(appointmentID).child("phone").setValue(phone);
-                Toast.makeText(getApplicationContext(),"selected successful", Toast.LENGTH_LONG).show();
+                messageFB mes = new messageFB();
+                String mesDate = appointmentID.substring(0, appointmentID.indexOf(','));
+                String mesHour = appointmentID.substring(appointmentID.indexOf(',')+1);
+                mes.addMessage(fName + " " + lName, mesDate , mesHour, "booked an appointment");
+                Toast.makeText(getApplicationContext(), "selected successful", Toast.LENGTH_LONG).show();
+                sendNotification(appointmentID);
             }
         });
 
@@ -153,5 +164,29 @@ public class selectAppointmentActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    private void createNotificationChannel() {
+        //for api26.0+
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            CharSequence name = "HairCutReminder";
+            String info ="chanel for turn reminder";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel= new NotificationChannel("turnReminder", name , importance);
+            channel.setDescription(info);
+            NotificationManager manager= getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        //other versions of api doesn't really relevant today
+    }
+    private void sendNotification(String appointmentID) {
+        NotificationCompat.Builder builder= new NotificationCompat.Builder(selectAppointmentActivity.this,"turnReminder");
+        builder.setSmallIcon(R.drawable.ic_android_black_24dp)
+                .setContentTitle("A New Haaircut!")
+                .setContentText("You got resrved order to my barber at :"+appointmentID)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        //maybe set category
+        //builder.build();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1, builder.build());
     }
 }

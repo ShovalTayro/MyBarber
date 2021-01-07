@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mybarber.Adapter.appointmentAdapter;
+import com.example.mybarber.Adapter.appointmentClientAdapter;
 import com.example.mybarber.Objects.Appointment;
 import com.example.mybarber.R;
 import com.example.mybarber.fireBase.appointmentFB;
@@ -30,7 +30,7 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private List<Appointment> appointmentList;
     private String phone, fName, lName;
-    private com.example.mybarber.Adapter.appointmentAdapter appointmentsAdapter;
+    private com.example.mybarber.Adapter.appointmentClientAdapter appointmentsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
     //set buttons &the text view
     private void findViews() {
         back = findViewById(R.id.back_button4);
-        recyclerView = (RecyclerView) findViewById(R.id.recV2);
+        recyclerView = findViewById(R.id.recV2);
     }
 
     //activate views &buttons
@@ -61,7 +61,7 @@ public class appointmentsHistoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         appointmentList = new ArrayList<>();
-        appointmentsAdapter = new appointmentAdapter(appointmentsHistoryActivity.this);
+        appointmentsAdapter = new appointmentClientAdapter(appointmentsHistoryActivity.this);
         recyclerView.setAdapter(appointmentsAdapter);
         appointmentFB appointment = new appointmentFB();
         //get all appointments from FB

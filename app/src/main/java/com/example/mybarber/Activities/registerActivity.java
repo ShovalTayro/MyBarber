@@ -30,6 +30,7 @@ public class registerActivity extends AppCompatActivity {
     private EditText firstName;
     private EditText lastName;
     private EditText phone_number;
+    private EditText address;
     private Button register_button;
     private Button back;
     private FirebaseAuth mAuth;
@@ -56,12 +57,13 @@ public class registerActivity extends AppCompatActivity {
         firstName = (EditText) findViewById(R.id.editTextTexttFrirstName);
         lastName = (EditText) findViewById(R.id.editTextTexttLastName);
         userSpinner= (Spinner) findViewById(R.id.userSpinner);
+        address = findViewById(R.id.editTextAddress);
     }
     //activate views &buttons
     private void myActivate() {
         ArrayList<String> userAuth = new ArrayList<String>();
-        userAuth.add("Admin");
         userAuth.add("Client");
+        userAuth.add("Admin");
         //make adapter to connect between the spinner to userAuth
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(registerActivity.this, android.R.layout.simple_spinner_dropdown_item, userAuth);
         //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -72,6 +74,14 @@ public class registerActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                  authSelected =parent.getSelectedItem().toString();
+                 if (authSelected.equals("Admin"))
+                 {
+                     address.setVisibility(View.VISIBLE);
+                 }
+                 if (authSelected.equals("Client"))
+                 {
+                     address.setVisibility(View.INVISIBLE);
+                 }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -110,7 +120,8 @@ public class registerActivity extends AppCompatActivity {
                                         //create admin
                                     //    root2 = new AdminFB();
                                         //add user to fireBase
-                                        adminRoot.addAdminToDB(fName, lName, phone, Email, pass);
+                                    String Address = address.getText().toString().trim();
+                                        adminRoot.addAdminToDB(fName, lName, phone, Email, pass,Address);
                                         Intent i = new Intent(registerActivity.this, managerActivity.class);
                                         Toast.makeText(registerActivity.this, "Admin has created", Toast.LENGTH_SHORT).show();
                                         i.putExtra("firstName", fName);

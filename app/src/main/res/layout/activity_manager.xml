@@ -7,6 +7,22 @@
     android:background="@drawable/my_background"
     tools:context=".Activities.managerActivity">
 
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="259dp"
+        android:layout_height="44dp"
+        android:layoutDirection="ltr"
+        android:text="Welcome Back "
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.173" />
+
     <Button
         android:id="@+id/calendar_button"
         android:layout_width="330dp"
@@ -36,5 +52,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.839" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="127dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/button_shape"
+        android:layoutDirection="ltr"
+        android:text="Log-Out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageButton
+        android:id="@+id/message_button"
+        android:layout_width="78dp"
+        android:layout_height="67dp"
+        android:layoutDirection="ltr"
+        android:background="@android:color/transparent"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

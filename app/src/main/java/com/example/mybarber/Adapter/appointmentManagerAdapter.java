@@ -4,26 +4,22 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mybarber.Objects.Appointment;
-import com.example.mybarber.Objects.hairCut;
 import com.example.mybarber.R;
 
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.ViewHolder> {
+public class appointmentManagerAdapter extends RecyclerView.Adapter<appointmentManagerAdapter.ViewHolder> {
     private List<Appointment> appointmentsList=new ArrayList();
     private Context info;
     //constructor
-    public appointmentAdapter(Context info) {
+    public appointmentManagerAdapter(Context info) {
         this.info = info;
     }
 
@@ -34,7 +30,7 @@ public class appointmentAdapter extends RecyclerView.Adapter<appointmentAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        int layout = R.layout.appointment_list;
+        int layout = R.layout.appointment_list_manager;
         View v = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
         return new ViewHolder(v);
     }

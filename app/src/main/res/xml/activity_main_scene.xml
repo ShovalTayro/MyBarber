@@ -31,24 +31,40 @@
             android:layout_width="wrap_content"
             android:id="@+id/button" />
         <Constraint
-            motion:layout_constraintVertical_bias="0.149"
+            motion:layout_constraintVertical_bias="0.766"
             android:layout_height="53dp"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintHorizontal_bias="1.0"
-            motion:layout_constraintEnd_toEndOf="@+id/login_button"
+            motion:layout_constraintHorizontal_bias="0.249"
+            motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="110dp"
-            motion:layout_constraintTop_toBottomOf="@+id/login_button"
-            android:id="@+id/register_button" />
+            android:id="@+id/register_button"
+            motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
-            motion:layout_constraintVertical_bias="0.658"
+            motion:layout_constraintVertical_bias="0.764"
             android:layout_height="51dp"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="109dp"
-            android:id="@+id/login_button" />
+            android:id="@+id/login_button"
+            motion:layout_constraintHorizontal_bias="0.794" />
+        <Constraint
+            android:layout_height="71dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="104dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="245dp"
+            android:id="@+id/myBarber"
+            motion:layout_constraintHorizontal_bias="0.704" />
+        <Constraint
+            motion:layout_editor_absoluteY="156dp"
+            android:layout_height="339dp"
+            motion:layout_editor_absoluteX="-3dp"
+            android:layout_width="252dp"
+            android:id="@+id/logo" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">

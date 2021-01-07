@@ -29,12 +29,19 @@ public class addAppointmentActivity extends AppCompatActivity {
     private Button add;
     private  Button back;
     private FirebaseAuth mAuth;
+    private String fName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //initialization
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_appointments);
+        Intent iin= getIntent();
+        //get extras from register/login activity
+        Bundle b = iin.getExtras();
+        if(b!=null) {
+            fName =(String) b.get("firstName");
+        }
         findViews();
         mAuth = FirebaseAuth.getInstance();
         myActivate();
@@ -107,6 +114,7 @@ public class addAppointmentActivity extends AppCompatActivity {
                     appointmentFB appointment = new appointmentFB();
                     appointment.addAppointmentAdmin(stringDate, stringHour);
                     Toast.makeText(getApplicationContext(),"added successful", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(addAppointmentActivity.this, allAppointmentActivity.class).putExtra("firstName", fName));
                     //startActivity(i);
                 }
             }
@@ -115,7 +123,7 @@ public class addAppointmentActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(addAppointmentActivity.this, allAppointmentActivity.class));
+                startActivity(new Intent(addAppointmentActivity.this, allAppointmentActivity.class).putExtra("firstName", fName));
             }
         });
     }

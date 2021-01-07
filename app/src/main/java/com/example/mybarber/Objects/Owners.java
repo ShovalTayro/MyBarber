@@ -8,17 +8,18 @@ public class Owners {
     String Email ;
     String phone ;
     String pass ;
-    int incomes;
+    String address;
 
     //constructors
     public Owners() {
     }
-    public Owners(String fName, String lName, String email, String phone, String pass ) {
+    public Owners(String fName, String lName, String email, String phone, String pass, String address ) {
         this.fName = fName;
         this.lName = lName;
         this.Email = email;
         this.pass = pass;
         this.phone = phone;
+        this.address = address;
     }
 
     //getters & setters
@@ -33,13 +34,6 @@ public class Owners {
     public void setEmail(String email) {
         Email = email;
     }
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-    public String getPass() {
-        return pass;
-    }
-
 
     public void setPass(String pass) {
         this.pass = pass;
@@ -51,10 +45,6 @@ public class Owners {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public void setIncomes(int incomes) {
-        this.incomes += incomes;
     }
 
     public String getfName() {
@@ -73,7 +63,9 @@ public class Owners {
         return phone;
     }
 
-    public int getIncomes() {
-        return incomes;
+    public String getAddress() {
+        return address;
     }
+
+    public void setAddress(String address) { this.address = address;}
 }

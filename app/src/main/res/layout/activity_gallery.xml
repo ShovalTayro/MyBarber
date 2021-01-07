@@ -8,10 +8,10 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:background="@drawable/my_background"
-    tools:context="Activities.allHaircutActivity">
+    tools:context="Activities.galleryActivity">
 
     <TextView
-        android:id="@+id/manager_headline"
+        android:id="@+id/headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/haircuts_gallery"
@@ -22,27 +22,17 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/back_button3"
-        android:layout_width="100dp"
+        android:id="@+id/back_button_gallery"
+        android:layout_width="120dp"
         android:layout_height="42dp"
         android:background="@drawable/button_shape"
         android:text="@string/back"
         android:textColor="@color/black"
         android:layout_alignParentRight="true" />
 
-    <Button
-        android:id="@+id/addHaircut"
-        android:layout_width="100dp"
-        android:layout_height="42dp"
-        android:layout_marginRight="22dp"
-        android:layout_toLeftOf="@id/back_button3"
-        android:background="@drawable/button_shape"
-        android:text="new"
-        android:textColor="@color/black" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/manager_gallery"
+        android:id="@+id/imagegallery"
         android:layout_width="match_parent"
         android:layout_height="650dp"
-        android:layout_below="@id/back_button3" />
+        android:layout_below="@id/back_button_gallery"/>
 </RelativeLayout>

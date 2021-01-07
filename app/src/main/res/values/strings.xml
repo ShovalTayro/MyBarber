@@ -12,7 +12,6 @@
     <string name="button">Button</string>
     <string name="calendar">Calendar</string>
     <string name="all_haircuts">all Haircuts</string>
-    <string name="todo">TODO</string>
     <string name="back">back</string>
     <string name="add">add</string>
     <string name="price">price:</string>
@@ -26,4 +25,7 @@
     <string name="select" />
     <string name="select_date">select date</string>
     <string name="appointments_history">_ Appointments History</string>
+    <string name="haircuts_gallery">haircuts gallery</string>
+    <string name="todo">TODO</string>
+    <string name="my_barber">My Barber</string>
 </resources>

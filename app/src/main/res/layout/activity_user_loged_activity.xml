@@ -8,11 +8,25 @@
     tools:context=".Activities.profileActivity">
 
     <Button
+        android:id="@+id/gallery"
+        android:layout_width="194dp"
+        android:layout_height="43dp"
+        android:background="@drawable/button_shape"
+        android:text="gallery"
+        android:textColor="@color/black"
+        app:backgroundTint="#919191"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/chooseTurn"
         android:layout_width="194dp"
         android:layout_height="43dp"
-        android:text="choose Turn"
         android:background="@drawable/button_shape"
+        android:text="choose Turn"
         android:textColor="@color/black"
         app:backgroundTint="#919191"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,23 +34,26 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.622" />
+        app:layout_constraintVertical_bias="0.633" />
 
     <Button
-        android:id="@+id/home"
-        android:layout_width="97dp"
-        android:layout_height="43dp"
+        android:id="@+id/logout_button"
+        android:layout_width="92dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="305dp"
+        android:layout_marginLeft="305dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/button_shape"
+        android:text="Log-Out"
         android:layoutDirection="ltr"
-        android:text="Home"
-        android:textColor="@color/black"
-        app:backgroundTint="#919191"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintBottom_toTopOf="@+id/welcome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.394" />
 
     <Button
         android:id="@+id/history"
@@ -59,16 +76,48 @@
         android:layout_width="259dp"
         android:layout_height="44dp"
         android:layoutDirection="ltr"
-        android:text="Welcome to MyBarber"
+        android:text="Welcome Back "
         android:textColor="@color/black"
 
         android:textSize="26sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.993"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintVertical_bias="0.193" />
+
+    <ImageButton
+        android:id="@+id/contactUsButton"
+        android:layout_width="47dp"
+        android:layout_height="39dp"
+        android:layoutDirection="ltr"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@android:drawable/ic_menu_call"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/waze"
+        android:layout_width="47dp"
+        android:layout_height="38dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:layoutDirection="ltr"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.118"
+        app:srcCompat="@drawable/waze"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

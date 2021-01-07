@@ -10,34 +10,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mybarber.Adapter.appointmentManagerAdapter;
+import com.example.mybarber.Adapter.appointmentClientAdapter;
+import com.example.mybarber.Adapter.messageAdapter;
 import com.example.mybarber.Objects.Appointment;
+import com.example.mybarber.Objects.message;
 import com.example.mybarber.R;
 import com.example.mybarber.fireBase.appointmentFB;
+import com.example.mybarber.fireBase.messageFB;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class allAppointmentActivity extends AppCompatActivity {
-    private Button addAppointment;
+public class allMessageActivity extends AppCompatActivity {
     private Button back;
     private FirebaseAuth fa;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
-    private List<Appointment> appointmentList;
-    private com.example.mybarber.Adapter.appointmentManagerAdapter appointmentsAdapter;
+    private List<message> messageList;
     private String fName;
+    private com.example.mybarber.Adapter.messageAdapter messageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //initialization
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_appointments);
+        setContentView(R.layout.activity_all_messages);
         Intent iin= getIntent();
         //get extras from register/login activity
         Bundle b = iin.getExtras();
@@ -50,42 +53,31 @@ public class allAppointmentActivity extends AppCompatActivity {
 
     //set buttons &the text view
     private void findViews() {
-        addAppointment = findViewById(R.id.addAppointment_button);
-        back = findViewById(R.id.back_button2);
-        recyclerView = (RecyclerView) findViewById(R.id.recV);
+        back = findViewById(R.id.backButton);
+        recyclerView = findViewById(R.id.recV3);
     }
 
     //activate views &buttons
     private void myActivate() {
-        addAppointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(allAppointmentActivity.this, addAppointmentActivity.class);
-                i.putExtra("firstName" , fName);
-                startActivity(i);
-            }
-        });
-
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        appointmentList = new ArrayList<>();
-
-        appointmentsAdapter = new appointmentManagerAdapter(allAppointmentActivity.this);
-        recyclerView.setAdapter(appointmentsAdapter);
-        appointmentFB appointment = new appointmentFB();
+        messageList = new ArrayList<>();
+        messageAdapter = new messageAdapter(allMessageActivity.this);
+        recyclerView.setAdapter(messageAdapter);
+        messageFB message = new messageFB();
         //get all appointments from FB
-        DatabaseReference dr = appointment.allAppointments();
+        DatabaseReference dr = message.allMessages();
         dr.addListenerForSingleValueEvent(new ValueEventListener() {
             //update appointments
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //add all appointments to list
                 for (DataSnapshot s : snapshot.getChildren()) {
-                    appointmentList.add(s.getValue(Appointment.class));
+                    messageList.add(s.getValue(message.class));
                 }
-                appointmentsAdapter.setAppointmentsList(appointmentList);
-                appointmentsAdapter.notifyDataSetChanged();
+                messageAdapter.setMessagesList(messageList);
+                messageAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -95,7 +87,9 @@ public class allAppointmentActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(allAppointmentActivity.this, managerActivity.class).putExtra("firstName" , fName));
+                Intent i = new Intent(allMessageActivity.this, managerActivity.class);
+                i.putExtra("firstName", fName);
+                startActivity(i);
             }
         });
     }
