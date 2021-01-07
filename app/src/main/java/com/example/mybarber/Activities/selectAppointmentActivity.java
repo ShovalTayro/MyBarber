@@ -181,8 +181,8 @@ public class selectAppointmentActivity extends AppCompatActivity {
     private void sendNotification(String appointmentID) {
         NotificationCompat.Builder builder= new NotificationCompat.Builder(selectAppointmentActivity.this,"turnReminder");
         builder.setSmallIcon(R.drawable.ic_android_black_24dp)
-                .setContentTitle("A New Haaircut!")
-                .setContentText("You got resrved order to my barber at :"+appointmentID)
+                .setContentTitle("A New Haircut!")
+                .setContentText("You got reserved order to my barber at :"+appointmentID)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         //maybe set category
         //builder.build();
